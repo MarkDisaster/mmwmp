@@ -1,0 +1,16 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "projectId": { "type": "number" },
+      "language": { "type": "string", "enum": ["cs", "en"] },
+      "title": { "type": "string" },
+      "role": { "type": "string", "nullable": true },
+      "description": { "type": "string", "nullable": true },
+      "content": { "type": "string", "nullable": true },
+      "metaTitle": { "type": "string", "nullable": true },
+      "metaDescription": { "type": "string", "nullable": true }
+   },
+   "required": ["id", "projectId", "language", "title"],
+   "x-readme-ref-name": "ProjectTranslationEntity"
+}

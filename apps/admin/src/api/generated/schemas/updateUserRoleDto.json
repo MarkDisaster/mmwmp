@@ -1,0 +1,6 @@
+{
+   "type": "object",
+   "properties": { "roleId": { "type": "number", "minimum": 1 } },
+   "required": ["roleId"],
+   "x-readme-ref-name": "UpdateUserRoleDto"
+}

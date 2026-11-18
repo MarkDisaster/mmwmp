@@ -1,0 +1,13 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "nick": { "type": "string", "example": "MMK" },
+      "score": { "type": "number" },
+      "seconds": { "type": "number" },
+      "hidden": { "type": "boolean" },
+      "createdAt": { "format": "date-time", "type": "string" }
+   },
+   "required": ["id", "nick", "score", "seconds", "hidden", "createdAt"],
+   "x-readme-ref-name": "RunnerScoreEntity"
+}

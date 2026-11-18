@@ -1,0 +1,6 @@
+{
+   "type": "object",
+   "properties": { "isAdmin": { "type": "boolean" } },
+   "required": ["isAdmin"],
+   "x-readme-ref-name": "AuditLogUserRoleEntity"
+}

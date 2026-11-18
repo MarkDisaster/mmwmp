@@ -1,0 +1,8 @@
+{
+   "type": "object",
+   "properties": {
+      "runId": { "type": "string", "description": "The started run, sent back with its score" }
+   },
+   "required": ["runId"],
+   "x-readme-ref-name": "RunnerRunEntity"
+}

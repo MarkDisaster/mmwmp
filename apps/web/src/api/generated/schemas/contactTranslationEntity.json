@@ -1,0 +1,16 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "contactId": { "type": "number" },
+      "language": { "type": "string", "enum": ["cs", "en"] },
+      "description": { "type": "string", "nullable": true },
+      "aboutTitle": {
+         "type": "string",
+         "nullable": true,
+         "description": "Heading of the About section; null = the web uses its default title"
+      }
+   },
+   "required": ["id", "contactId", "language"],
+   "x-readme-ref-name": "ContactTranslationEntity"
+}

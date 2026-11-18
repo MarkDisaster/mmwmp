@@ -1,0 +1,73 @@
+{
+   "type": "object",
+   "properties": {
+      "slug": {
+         "type": "string",
+         "description": "URL-friendly slug (lowercase alphanumeric with hyphens)"
+      },
+      "showOnHomepage": {
+         "type": "boolean",
+         "description": "Whether to show this service on the homepage"
+      },
+      "status": {
+         "type": "string",
+         "description": "Publication status. Left out keeps the current one (a new service starts as a draft); changing it needs the publish permission",
+         "enum": ["draft", "published"]
+      },
+      "translations": {
+         "uniqueItems": true,
+         "minItems": 1,
+         "description": "Translations, one per language. Those with a non-empty title are created or updated; languages that are not sent are left as they are. At least one needs a title",
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "language": {
+                  "type": "string",
+                  "description": "Language of the translation",
+                  "enum": ["cs", "en"]
+               },
+               "title": {
+                  "type": "string",
+                  "description": "Service title. A translation with an empty title is skipped, not saved"
+               },
+               "description": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Short description; left out or null clears it"
+               },
+               "content": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Rich text content (sanitised on save); left out or null clears it"
+               },
+               "metaTitle": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "SEO meta title (empty or null clears it)"
+               },
+               "metaDescription": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "SEO meta description (empty or null clears it)"
+               }
+            },
+            "required": ["language", "title"],
+            "x-readme-ref-name": "SaveServiceTranslationDto"
+         }
+      },
+      "projectIds": {
+         "description": "IDs of the assigned projects in display order (replaces the existing ones)",
+         "maxItems": 200,
+         "type": "array",
+         "items": { "type": "number", "minimum": 1 }
+      },
+      "version": {
+         "type": "integer",
+         "description": "The `version` of the record the change is based on (from its detail). When another one is stored, nothing is written and the answer is 409 with the code VERSION_CONFLICT. Left out, the change is written without the check",
+         "minimum": 0
+      }
+   },
+   "required": ["slug", "showOnHomepage", "translations", "projectIds"],
+   "x-readme-ref-name": "SaveServiceDto"
+}

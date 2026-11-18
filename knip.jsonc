@@ -1,0 +1,33 @@
+{
+   "$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
+   "ignore": ["scripts/public-release/**"],
+   "workspaces": {
+      "apps/api": {
+         "jest": false,
+         "entry": [
+            "src/main.ts",
+            "jest.config.ts",
+            "src/**/*.spec.ts",
+            "test/src/**/*.test.ts",
+            "test/setup/{global-setup,global-teardown,init}.ts",
+            "test/unit-setup.ts",
+         ],
+         "ignoreDependencies": ["@types/multer", "pino-pretty", "ts-node"],
+      },
+      "apps/admin": {
+         "entry": ["kubb.config.ts"],
+         "ignoreIssues": {
+            "src/api/generated/**": ["files", "exports", "types", "duplicates"],
+            "src/routes/routeTree.gen.ts": ["exports", "types"],
+            "src/components/ui/**": ["exports", "types"],
+         },
+      },
+      "apps/web": {
+         "entry": ["kubb.config.ts"],
+         "ignoreDependencies": ["vercel"],
+         "ignoreIssues": {
+            "src/api/generated/**": ["files", "exports", "types", "duplicates"],
+         },
+      },
+   },
+}

@@ -1,0 +1,20 @@
+node_modules
+dist
+.next
+.turbo
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+*.local.md
+.worktrees
+.vercel
+
+# Generated at build time (`generate:docgen`, run by `prebuild`) and served from public/.
+# react-docgen writes keys in the order its parallel file reads finish, so a committed copy
+# changes on every run.
+apps/*/public/react-docgen.json
+
+# Local workspace of the plan-driven development runs (ledgers, review diffs, reports).
+# The committed design documents live in docs/superpowers/.
+.superpowers/

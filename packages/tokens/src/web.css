@@ -1,0 +1,36 @@
+:root {
+   --background: var(--brand-white);
+   --foreground: var(--brand-black);
+
+   --primary: var(--brand-black);
+   --primary-foreground: var(--brand-white);
+
+   --accent: var(--brand-gray-light);
+   --accent-foreground: var(--brand-black);
+
+   --muted: var(--brand-gray-light);
+   --muted-foreground: color-mix(in srgb, var(--brand-black) 60%, transparent);
+
+   --border: var(--brand-black);
+   --input: var(--brand-black);
+   --ring: var(--brand-blue);
+
+   --brand: var(--brand-blue);
+   --brand-foreground: var(--brand-fixed-white);
+
+   --fixed-white: var(--brand-fixed-white);
+   --fixed-black: var(--brand-fixed-black);
+}
+
+.dark {
+   --background: var(--brand-dark-bg);
+   --foreground: var(--brand-fixed-white);
+   --primary: var(--brand-fixed-white);
+   --primary-foreground: var(--brand-dark-bg);
+   --accent: var(--brand-dark-muted);
+   --accent-foreground: var(--brand-fixed-white);
+   --muted: var(--brand-dark-muted);
+   --muted-foreground: color-mix(in srgb, var(--brand-fixed-white) 60%, transparent);
+   --border: var(--brand-fixed-white);
+   --input: var(--brand-fixed-white);
+}

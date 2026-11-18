@@ -1,0 +1,292 @@
+{
+   "HomePage": {
+      "title": "Marek Marek | Software Developer",
+      "siteDescription": "Portfolio softwarového vývojáře Marka Marka.",
+      "metaDescription": "Softwarový vývojář se specializací na React, Next.js a moderní webové aplikace. 5+ let zkušeností s tvorbou produkčních aplikací.",
+      "name": "Marek",
+      "role1": "software",
+      "role2": "developer",
+      "cta": "Kontakt"
+   },
+   "RunnerGame": {
+      "pressStart": "SKOČ MEZERNÍKEM",
+      "pressStartTouch": "ŤUKNI PRO SKOK",
+      "retry": "ZNOVU",
+      "controls": "Mezerník skok, podržením výš, Escape konec.",
+      "controlsTouch": "Ťukni pro skok, podržením výš.",
+      "topPlayers": "TOP 10",
+      "showTopPlayers": "Nejlepší hráči",
+      "closeTopPlayers": "Zavřít žebříček",
+      "topUnavailable": "Žebříček teď nejde načíst.",
+      "rank": "POŘADÍ",
+      "nickHint": "Jedno až tři písmena nebo číslice. Skóre se s nimi uloží mezerníkem i Esc.",
+      "nick": "JMÉNO",
+      "result": "Konec hry. Skóre {score}.",
+      "quit": "KONEC",
+      "resume": "PAUZA · MEZERNÍK = POKRAČOVAT",
+      "resumeTouch": "PAUZA · ŤUKNI = POKRAČOVAT",
+      "newRecord": "NOVÝ REKORD",
+      "score": "SKÓRE",
+      "record": "REKORD",
+      "ariaLabel": "Běhací hra: robot Terminál doručuje projekt klientovi přes bugy, testy a termíny.",
+      "phases": {
+         "planning": {
+            "name": "LVL 1",
+            "title": "LVL 1 PLANNING",
+            "subtitle": "Projekt převzat. Na cestu."
+         },
+         "development": {
+            "name": "LVL 2",
+            "title": "LVL 2 DEVELOPMENT",
+            "subtitle": "Píše se kód. Pozor na bugy."
+         },
+         "testing": {
+            "name": "LVL 3",
+            "title": "LVL 3 TESTING",
+            "subtitle": "Všechno funguje. Skoro."
+         },
+         "launch": {
+            "name": "LVL 4",
+            "title": "LVL 4 LAUNCH",
+            "subtitle": "Termín na dohled."
+         },
+         "delivered": {
+            "name": "DELIVERED",
+            "title": "DELIVERED ✓",
+            "subtitle": "Klient má, co chtěl."
+         },
+         "maintenance": {
+            "name": "MAINTENANCE",
+            "title": "MAINTENANCE V{version}",
+            "subtitle": "Projekt žije dál."
+         },
+         "version": {
+            "name": "VERSION",
+            "title": "VERSION {version}",
+            "subtitle": "Projekt žije dál."
+         }
+      },
+      "enemies": {
+         "question": {
+            "deaths": ["Zadání bylo jasné. Skoro.", "Klient chtěl 3D.", "Na tohle se mělo zeptat."]
+         },
+         "tbd": {
+            "deaths": ["Bude upřesněno.", "Doplní se později.", "V zadání stálo jen TBD."]
+         },
+         "bug": {
+            "deaths": ["To není bug, to je feature.", "U mě to funguje.", "Přidám to do backlogu."]
+         },
+         "bugs": {
+            "deaths": [
+               "Bugy chodí ve dvojicích.",
+               "Kde je jeden bug, je i druhý.",
+               "Ty dva se znají z produkce."
+            ]
+         },
+         "semicolon": {
+            "deaths": [
+               "Chyběl jeden středník.",
+               "Malý znak, velký pád.",
+               "SyntaxError na řádku 47."
+            ]
+         },
+         "pit404": {
+            "deaths": [
+               "404: robot nenalezen",
+               "Stránka ani robot nenalezeni.",
+               "Tady měla být cesta."
+            ]
+         },
+         "legacy": {
+            "deaths": [
+               "Na tohle se nesahá.",
+               "Funguje to. Nikdo neví proč.",
+               "Kód starší než tahle hra."
+            ]
+         },
+         "pit500": {
+            "deaths": [
+               "500: chyba na straně serveru",
+               "Zkusili jste to restartovat?",
+               "Něco se pokazilo. Hodně."
+            ]
+         },
+         "patched": {
+            "deaths": ["Jeden opraven, dva nové.", "Oprava měla potomky.", "Fix vyrobil další fix."]
+         },
+         "cookie": {
+            "deaths": [
+               "Přijmout všechny cookies?",
+               "Tento web používá cookies.",
+               "Kde je tlačítko Odmítnout?"
+            ]
+         },
+         "deadlineLow": {
+            "deaths": ["Termín uplynul.", "Odhad byl dva dny.", "Termín přišel dřív."]
+         },
+         "deadline": {
+            "deaths": ["Termín se nepřeskakuje.", "Bude to hotové… brzy.", "Skok nebyl v plánu."]
+         },
+         "meeting": {
+            "deaths": ["Tohle mohl být e-mail.", "Porada se protáhla.", "Další meeting za 5 minut."]
+         },
+         "scopeCreep": {
+            "deaths": ["Drobnost vyrostla.", "Malá úprava, velký rozsah.", "Ještě jedna drobnost…"]
+         },
+         "merge": {
+            "deaths": ["<<<<<<< HEAD", "Přijmout obě změny?", "Kolega byl s mergem rychlejší."]
+         },
+         "mobile": {
+            "deaths": [
+               "Na počítači to fungovalo.",
+               "Klient to otevřel na mobilu.",
+               "Safari má vlastní názor."
+            ]
+         },
+         "comment": {
+            "deaths": ["Komentář k řádku 147.", "Požadovány změny.", "„Proč tady není test?“"]
+         },
+         "crowd": {
+            "deaths": [
+               "429: příliš mnoho požadavků",
+               "Marketing poslal newsletter.",
+               "Zátěžový test se nedělal."
+            ]
+         },
+         "update": {
+            "deaths": ["Restartovat teď?", "Instaluje se 1 z 47.", "Aktualizace má přednost."]
+         },
+         "leak": {
+            "deaths": ["Paměť došla.", "Někdo zapomněl uklidit.", "Chrome si vzal 8 GB."]
+         },
+         "reschedule": {
+            "deaths": [
+               "Termín se posunul. Zase.",
+               "Potřebujeme to na včera.",
+               "Stihne se to do pátku?"
+            ]
+         },
+         "platform": {
+            "deaths": [
+               "Tenhle schod nebyl v zadání.",
+               "Laťka se zvedla.",
+               "Senior laťka, junior skok."
+            ]
+         }
+      },
+      "pickupNames": {
+         "commit": "commit",
+         "review": "schváleno",
+         "deploy": "release",
+         "skill": "technologie",
+         "feedback": "feedback",
+         "docs": "dokumentace"
+      },
+      "deliveredName": "DELIVERED"
+   },
+   "Header": {
+      "skipToContent": "Přeskočit na obsah",
+      "projects": "Projekty",
+      "about": "O mně",
+      "contact": "Kontakt",
+      "siteNavigation": "Navigace webu",
+      "languageName": "Čeština",
+      "menuTitle": "Hlavní navigace",
+      "openMenu": "Otevřít menu",
+      "closeMenu": "Zavřít menu",
+      "home": "marek.media – úvodní stránka",
+      "github": "GitHub (otevře se v novém okně)",
+      "linkedin": "LinkedIn (otevře se v novém okně)",
+      "language": "Jazyk",
+      "darkMode": "Tmavý režim",
+      "privacy": "Zásady ochrany osobních údajů",
+      "backToHome": "Zpět na úvod"
+   },
+   "Pagination": {
+      "label": "Stránkování",
+      "previous": "Předchozí stránka",
+      "next": "Další stránka"
+   },
+   "RichText": {
+      "openTable": "Otevřít tabulku na celou obrazovku",
+      "openImage": "Otevřít obrázek na celou obrazovku",
+      "close": "Zavřít",
+      "tableTitle": "Tabulka",
+      "imageTitle": "Obrázek"
+   },
+   "Projects": {
+      "title": "Projekty",
+      "description": "Přehled webových projektů Marka Marka — design, vývoj a digitální produkty.",
+      "backToProjects": "Zpět na projekty",
+      "allProjects": "Všechny projekty",
+      "mediaFiles": "Soubory ke stažení",
+      "loadMore": "Načíst další",
+      "loadingMore": "Načítám…",
+      "loadMoreError": "Další projekty se nepodařilo načíst. Zkuste to znovu.",
+      "role": "Role",
+      "period": "Období",
+      "company": "Firma",
+      "stack": "Stack",
+      "links": "Odkazy"
+   },
+   "Services": {
+      "aboutTitle": "O mně",
+      "aboutDescription": "Marek Marek — softwarový vývojář. Tvorba webů, aplikací a digitálních produktů."
+   },
+   "Contact": {
+      "cta": "Kontakt",
+      "title": "Kontakt",
+      "metaTitle": "Kontakt | Marek Marek",
+      "metaDescription": "Kontaktujte Marka Marka — softwarového vývojáře pro React, Next.js a digitální produkty. E-mail, telefon nebo IČO pro B2B spolupráci.",
+      "ico": "IČO",
+      "notVatPayer": "(neplátce DPH)"
+   },
+   "Preview": {
+      "banner": "Režim náhledu — <exit>Ukončit</exit>",
+      "exitDraftMode": "Ukončit režim náhledu"
+   },
+   "NotFound": {
+      "code": "404",
+      "label": "error",
+      "subtitle": "nenalezeno",
+      "cta": "Zpět domů"
+   },
+   "ErrorPage": {
+      "code": "500",
+      "label": "error",
+      "subtitle": "mimo provoz",
+      "cta": "Zkusit znovu"
+   },
+   "Privacy": {
+      "metaTitle": "Zásady ochrany osobních údajů | Marek Marek",
+      "metaDescription": "Co web marek.media ukládá a zpracovává, proč, jak dlouho a jaká jsou vaše práva.",
+      "title": "Zásady ochrany osobních údajů",
+      "lead": "Co o vás web marek.media ukládá, proč a jak dlouho. Stručně: žádná analytika ani reklama, jen to, co potřebuje provoz webu a minihry.",
+      "whoHeading": "Kdo web provozuje.",
+      "whoText": "Správcem osobních údajů je Marek Marek. Identifikační a kontaktní údaje najdete na stránce <contact>Kontakt</contact>.",
+      "noToolsHeading": "Co web nepoužívá.",
+      "noToolsText": "Žádnou analytiku, reklamní ani sledovací nástroje a žádné skripty reklamních sítí.",
+      "deviceHeading": "Co se ukládá ve vašem zařízení.",
+      "deviceIntro": "Slouží jen k fungování webu a vašemu nastavení, ke sledování je nepoužíváme:",
+      "deviceStorage": "vámi zvolený vzhled (světlý nebo tmavý), váš nejdelší běh v minihře a poslední přezdívka. Ukládají se v úložišti prohlížeče (localStorage), zůstávají jen ve vašem zařízení a smažete je v nastavení prohlížeče,",
+      "deviceCookie": "cookie NEXT_LOCALE si pamatuje zvolený jazyk a platí jen po dobu relace prohlížeče.",
+      "gameHeading": "Minihra a žebříček.",
+      "gameText": "Po každé hře, kterou ukončíte nebo opustíte (novou hrou, mezerníkem, klávesou Esc, odchodem na jinou stránku nebo zavřením stránky) a která trvala aspoň 5 sekund, se výsledek uloží na server: přezdívka (1 až 3 písmena nebo číslice), skóre, délka hry a čas uložení. Přezdívka je předvyplněná (DOE, případně ta, kterou jste použili naposledy) a můžete ji před odesláním změnit. Deset nejlepších výsledků je veřejně vidět v žebříčku. Přezdívku s ničím dalším nespojujeme, zvolte proto takovou, podle které vás nikdo nepozná. Výsledky starší než 30 dnů, které nepatří mezi zhruba tisíc nejlepších, se pravidelně mažou. Nejlepší výsledky a výsledky, které jsem z žebříčku skryl (například kvůli nevhodné přezdívce), se uchovávají, dokud je nesmažu. Výsledek smažu na vaši žádost. Právním základem je oprávněný zájem na provozu hry a jejím zabezpečení (čl. 6 odst. 1 písm. f) GDPR).",
+      "ipHeading": "IP adresa a ochrana proti zneužití.",
+      "ipText": "Aby šlo hru a rozhraní chránit před zahlcením, počítáme požadavky z jedné IP adresy. Počítadlo zůstává v paměťové službě nejvýše 10 minut a k výsledku se neukládá. Právním základem je oprávněný zájem na zabezpečení webu.",
+      "hostingHeading": "Hosting a technické záznamy.",
+      "hostingText": "Web, rozhraní a soubory běží u poskytovatelů Vercel, Railway a Cloudflare, data u poskytovatelů databáze (Neon) a paměťové služby (Aiven); ti jsou příjemci údajů jako zpracovatelé. Při doručení stránky mohou zpracovávat technické údaje (IP adresu, typ prohlížeče, čas požadavku), aby web fungoval a byl zabezpečený, a uchovávají je podle svých lhůt. Rozhraní navíc zapisuje technický záznam každého požadavku, včetně IP adresy, adresy požadavku, typu prohlížeče a času. Záznam je uložen u poskytovatele Railway po dobu, kterou určuje jeho dokumentace (podle tarifu 7 až 30 dnů). Právním základem je oprávněný zájem na provozu a zabezpečení webu. Někteří poskytovatelé sídlí mimo Evropskou unii, zejména v USA. Předání se opírá o rozhodnutí Evropské komise o odpovídající ochraně nebo o standardní smluvní doložky, podle toho, jak je poskytovatel zajišťuje. Informace o zárukách vám na požádání sdělím.",
+      "monitoringHeading": "Záznam chyb.",
+      "monitoringText": "Když v rozhraní (API), na serveru webu nebo v administraci nastane chyba, odešle se její technický záznam službě Sentry (sentry.io), která ho zpracovává jako zpracovatel; naše organizace je v datovém centru v Evropské unii. Záznam obsahuje chybovou zprávu, zásobník volání, adresu požadavku (bez tajných částí odkazů a bez parametrů), čas a verzi aplikace. IP adresu, cookies, hlavičky ani obsah požadavků nesbírám a Sentry IP adresu neukládá; z adresy odesílatele odvodí jen přibližnou polohu (stát a město). Chybová zpráva může výjimečně obsahovat údaj z obsahu, se kterým se pracovalo. Právním základem je oprávněný zájem na odhalování a opravě chyb. Váš prohlížeč při návštěvě veřejného webu žádný kód Sentry nenačítá a nic mu neodesílá.",
+      "aiHeading": "AI asistent v administraci.",
+      "aiText": "Když správce webu používá AI asistenta, může se do služeb poskytovatelů AI (Anthropic, Google) odeslat i obsah z administrace, včetně přezdívek a skóre z žebříčku. Obsah zůstává v historii konverzace asistenta bez automatického mazání. Právním základem je oprávněný zájem na správě webu.",
+      "contactHeading": "Když mi napíšete nebo zavoláte.",
+      "contactText": "E-mail nebo telefon použiji jen k odpovědi a komunikaci k vaší poptávce. Na webu není kontaktní formulář. Právním základem je oprávněný zájem odpovědět na váš dotaz, případně jednání o smlouvě na vaši žádost (čl. 6 odst. 1 písm. f) a b) GDPR). Údaje uchovávám po dobu nezbytnou k vyřízení poptávky a po dobu, kterou vyžadují zákony.",
+      "automatedHeading": "Dobrovolnost a automatizované rozhodování.",
+      "automatedText": "Uložení výsledku je součástí hry. Pokud nechcete, aby se váš výsledek uložil, před odchodem přezdívku smažte, nebo hru nehrajte. Jinou povinnost poskytnout údaje nemáte, ze zákona ani ze smlouvy žádná nevzniká. Neprovádíme automatizované rozhodování ani profilování.",
+      "rightsHeading": "Vaše práva.",
+      "rightsText": "Můžete požádat o přístup k údajům, jejich opravu nebo výmaz, omezení zpracování, vznést námitku proti zpracování z oprávněného zájmu a, pokud se na zpracování vztahuje, požádat o přenesení údajů. Žádné zpracování na tomto webu nestojí na vašem souhlasu, nemáte tedy co odvolat. Napište mi přes stránku <contact>Kontakt</contact>. Stížnost můžete podat u Úřadu pro ochranu osobních údajů (<uoou>uoou.gov.cz</uoou>).",
+      "changesHeading": "Změny.",
+      "changesText": "Zásady mohu aktualizovat, platné znění je vždy na této stránce. Naposledy aktualizováno 10. 11. 2026."
+   }
+}

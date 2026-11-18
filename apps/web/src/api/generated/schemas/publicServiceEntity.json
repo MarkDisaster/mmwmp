@@ -1,0 +1,100 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "title": { "type": "string" },
+      "status": { "type": "string", "enum": ["draft", "published"] },
+      "slug": { "type": "string" },
+      "sortOrder": { "type": "number" },
+      "showOnHomepage": { "type": "boolean" },
+      "publishedAt": { "format": "date-time", "type": "string", "nullable": true },
+      "createdAt": { "format": "date-time", "type": "string" },
+      "updatedAt": { "format": "date-time", "type": "string" },
+      "translations": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "serviceId": { "type": "number" },
+               "language": { "type": "string", "enum": ["cs", "en"] },
+               "title": { "type": "string" },
+               "description": { "type": "string", "nullable": true },
+               "content": { "type": "string", "nullable": true },
+               "metaTitle": { "type": "string", "nullable": true },
+               "metaDescription": { "type": "string", "nullable": true }
+            },
+            "required": ["id", "serviceId", "language", "title"],
+            "x-readme-ref-name": "ServiceTranslationEntity"
+         }
+      },
+      "projects": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "serviceId": { "type": "number" },
+               "projectId": { "type": "number" },
+               "sortOrder": { "type": "number" },
+               "project": {
+                  "type": "object",
+                  "properties": {
+                     "id": { "type": "number" },
+                     "slug": { "type": "string" },
+                     "translations": {
+                        "type": "array",
+                        "items": {
+                           "type": "object",
+                           "properties": {
+                              "language": { "type": "string" },
+                              "title": { "type": "string" }
+                           },
+                           "required": ["language", "title"],
+                           "x-readme-ref-name": "ServiceProjectTranslationEntity"
+                        }
+                     }
+                  },
+                  "required": ["id", "slug", "translations"],
+                  "x-readme-ref-name": "ServiceProjectItemEntity"
+               }
+            },
+            "required": ["serviceId", "projectId", "sortOrder", "project"],
+            "x-readme-ref-name": "ServiceProjectEntity"
+         }
+      },
+      "createdBy": {
+         "nullable": true,
+         "type": "object",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "id": { "type": "number" },
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "email": {
+                     "type": "string",
+                     "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                  }
+               },
+               "required": ["id", "firstName", "lastName"],
+               "x-readme-ref-name": "AuthorEntity"
+            }
+         ]
+      }
+   },
+   "required": [
+      "id",
+      "title",
+      "status",
+      "slug",
+      "sortOrder",
+      "showOnHomepage",
+      "publishedAt",
+      "createdAt",
+      "updatedAt",
+      "translations",
+      "projects"
+   ],
+   "x-readme-ref-name": "PublicServiceEntity"
+}

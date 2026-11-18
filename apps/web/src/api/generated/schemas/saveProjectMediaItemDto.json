@@ -1,0 +1,20 @@
+{
+   "type": "object",
+   "properties": {
+      "id": {
+         "type": "number",
+         "description": "ID of an existing media row of this project to keep (omit for a new item)"
+      },
+      "fileId": {
+         "type": "number",
+         "description": "File to add as a new media row (omit with `id`)"
+      },
+      "language": {
+         "type": "string",
+         "nullable": true,
+         "description": "Language of a new media row (omit with `id`; null or omitted means all)",
+         "enum": ["cs", "en"]
+      }
+   },
+   "x-readme-ref-name": "SaveProjectMediaItemDto"
+}

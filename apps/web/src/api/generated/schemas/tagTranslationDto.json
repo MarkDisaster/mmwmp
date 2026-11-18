@@ -1,0 +1,13 @@
+{
+   "type": "object",
+   "properties": {
+      "language": { "type": "string", "description": "Language of the name", "enum": ["cs", "en"] },
+      "name": {
+         "type": "string",
+         "maxLength": 100,
+         "description": "Name of the tag in this language. An empty name is skipped (for `en` it means no English name, the web shows the Czech one); `cs` needs a non-empty name"
+      }
+   },
+   "required": ["language", "name"],
+   "x-readme-ref-name": "TagTranslationDto"
+}

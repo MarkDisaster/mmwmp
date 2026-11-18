@@ -1,0 +1,14 @@
+{
+   "type": "object",
+   "properties": {
+      "label": {
+         "type": "string",
+         "nullable": true,
+         "maxLength": 50,
+         "description": "Link label, e.g. GitHub (the web falls back to the domain when empty)"
+      },
+      "url": { "type": "string", "description": "Link URL", "maxLength": 2048 }
+   },
+   "required": ["url"],
+   "x-readme-ref-name": "ProjectLinkDto"
+}

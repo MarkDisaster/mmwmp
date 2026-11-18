@@ -1,0 +1,108 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "filename": { "type": "string" },
+      "originalName": { "type": "string" },
+      "displayName": { "type": "string", "nullable": true },
+      "altText": {
+         "type": "string",
+         "nullable": true,
+         "description": "Description of the image in the language of the file (the `alt` attribute)"
+      },
+      "mimeType": { "type": "string" },
+      "size": { "type": "number" },
+      "width": { "type": "number", "nullable": true },
+      "height": { "type": "number", "nullable": true },
+      "storagePath": { "type": "string" },
+      "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+      "processingStatus": {
+         "type": "string",
+         "enum": ["PENDING", "PROCESSING", "READY", "FAILED"]
+      },
+      "processingError": { "type": "string", "nullable": true },
+      "createdById": { "type": "number", "nullable": true },
+      "createdBy": {
+         "nullable": true,
+         "type": "object",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "id": { "type": "number" },
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "email": {
+                     "type": "string",
+                     "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                  }
+               },
+               "required": ["id", "firstName", "lastName"],
+               "x-readme-ref-name": "AuthorEntity"
+            }
+         ]
+      },
+      "createdAt": { "type": "string" },
+      "version": {
+         "type": "integer",
+         "description": "Raised by every change; send it back as `version` of the next change"
+      },
+      "deletedAt": {
+         "type": "string",
+         "nullable": true,
+         "description": "Set when the file is in the trash. Only a project detail can show such a file (the project keeps its reference); the library and the public endpoints leave it out."
+      },
+      "publicUrl": { "type": "string" },
+      "variants": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "variant": {
+                  "type": "string",
+                  "enum": ["thumbnail", "medium", "large", "original"]
+               },
+               "storagePath": { "type": "string" },
+               "mimeType": { "type": "string" },
+               "size": { "type": "number" },
+               "width": { "type": "number", "nullable": true },
+               "height": { "type": "number", "nullable": true },
+               "publicUrl": { "type": "string" }
+            },
+            "required": [
+               "id",
+               "variant",
+               "storagePath",
+               "mimeType",
+               "size",
+               "width",
+               "height",
+               "publicUrl"
+            ],
+            "x-readme-ref-name": "FileVariantEntity"
+         }
+      }
+   },
+   "required": [
+      "id",
+      "filename",
+      "originalName",
+      "displayName",
+      "altText",
+      "mimeType",
+      "size",
+      "width",
+      "height",
+      "storagePath",
+      "language",
+      "processingStatus",
+      "processingError",
+      "createdById",
+      "createdAt",
+      "version",
+      "publicUrl",
+      "variants"
+   ],
+   "x-readme-ref-name": "FileEntity"
+}

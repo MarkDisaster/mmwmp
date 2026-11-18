@@ -1,0 +1,33 @@
+{
+   "type": "object",
+   "properties": {
+      "runId": {
+         "type": "string",
+         "format": "uuid",
+         "description": "The run the score is from, as started by POST /public/runner-scores/runs",
+         "example": "5f0c1b2e-8d4a-4f6e-9b1a-2c3d4e5f6a7b"
+      },
+      "nick": {
+         "type": "string",
+         "pattern": "^[A-Z0-9]{1,3}$",
+         "description": "Player nickname: one to three letters or digits",
+         "example": "MMK"
+      },
+      "score": {
+         "type": "integer",
+         "minimum": 0,
+         "maximum": 1000000,
+         "description": "Final score of the run",
+         "example": 1186
+      },
+      "seconds": {
+         "type": "integer",
+         "minimum": 0,
+         "maximum": 86400,
+         "description": "Whole seconds the run lasted; runs under 5 s are accepted but not stored",
+         "example": 300
+      }
+   },
+   "required": ["runId", "nick", "score", "seconds"],
+   "x-readme-ref-name": "CreateRunnerScoreDto"
+}

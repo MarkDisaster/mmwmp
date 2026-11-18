@@ -1,0 +1,6 @@
+{
+   "type": "string",
+   "enum": ["SLUG_TAKEN", "CONCURRENT_CHANGE", "BUSY", "VERSION_CONFLICT"],
+   "description": "Machine-readable reason of the error, for answers a client tells apart (the 409 of a save: a taken slug, a conflict to retry, or a record changed since its `version`). Match it instead of the message text",
+   "x-readme-ref-name": "ApiErrorCode"
+}

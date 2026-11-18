@@ -1,0 +1,5 @@
+{
+   "type": "string",
+   "enum": ["projects", "services", "tags", "files", "contact"],
+   "x-readme-ref-name": "EditLockEntity"
+}

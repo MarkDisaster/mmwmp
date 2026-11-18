@@ -1,0 +1,42 @@
+{
+   "type": "object",
+   "properties": {
+      "language": {
+         "type": "string",
+         "description": "Language of the translation",
+         "enum": ["cs", "en"]
+      },
+      "title": {
+         "type": "string",
+         "description": "Title. A translation with an empty title is skipped and keeps what is stored"
+      },
+      "role": {
+         "type": "string",
+         "nullable": true,
+         "maxLength": 100,
+         "description": "Role on the project, e.g. Frontend developer (empty or null clears it)"
+      },
+      "description": {
+         "type": "string",
+         "nullable": true,
+         "description": "Short description (rich text, sanitised; null clears it)"
+      },
+      "content": {
+         "type": "string",
+         "nullable": true,
+         "description": "Full content (rich text, sanitised; null clears it)"
+      },
+      "metaTitle": {
+         "type": "string",
+         "nullable": true,
+         "description": "SEO meta title (empty or null clears it)"
+      },
+      "metaDescription": {
+         "type": "string",
+         "nullable": true,
+         "description": "SEO meta description (empty or null clears it)"
+      }
+   },
+   "required": ["language", "title"],
+   "x-readme-ref-name": "SaveProjectTranslationDto"
+}

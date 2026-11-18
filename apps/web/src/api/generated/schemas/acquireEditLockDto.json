@@ -1,0 +1,18 @@
+{
+   "type": "object",
+   "properties": {
+      "sessionId": {
+         "type": "string",
+         "minLength": 8,
+         "maxLength": 64,
+         "description": "Random id of the open browser tab"
+      },
+      "takeOver": {
+         "type": "boolean",
+         "description": "Take the lock from the user who holds it (default: leave it with them)",
+         "default": false
+      }
+   },
+   "required": ["sessionId"],
+   "x-readme-ref-name": "AcquireEditLockDto"
+}

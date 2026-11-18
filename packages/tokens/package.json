@@ -1,0 +1,12 @@
+{
+   "name": "@mm/tokens",
+   "version": "0.1.0",
+   "private": true,
+   "type": "module",
+   "exports": {
+      "./primitives.css": "./src/primitives.css",
+      "./web.css": "./src/web.css",
+      "./admin.css": "./src/admin.css"
+   },
+   "files": ["src"]
+}

@@ -1,0 +1,162 @@
+{
+   "type": "object",
+   "properties": {
+      "slug": {
+         "type": "string",
+         "description": "URL-friendly slug (lowercase alphanumeric with hyphens)"
+      },
+      "thumbnailId": {
+         "type": "number",
+         "nullable": true,
+         "description": "Thumbnail file ID (null for none)"
+      },
+      "showOnHomepage": {
+         "type": "boolean",
+         "description": "Whether to show this project on the homepage"
+      },
+      "company": {
+         "type": "string",
+         "nullable": true,
+         "maxLength": 200,
+         "description": "Company or client the project was made for (empty or null for none)"
+      },
+      "startYear": {
+         "type": "number",
+         "nullable": true,
+         "minimum": 1990,
+         "maximum": 2100,
+         "description": "Year the work started (null for none)"
+      },
+      "endYear": {
+         "type": "number",
+         "nullable": true,
+         "minimum": 1990,
+         "maximum": 2100,
+         "description": "Year the work ended (null when not set or when the project is ongoing)"
+      },
+      "ongoing": {
+         "type": "boolean",
+         "description": "The project is still running (the web shows startYear to the current year). true requires startYear and endYear null (400 otherwise). Omitted keeps the stored value (false for a new project)"
+      },
+      "translations": {
+         "minItems": 1,
+         "description": "Translations, one per language. Those with a non-empty title are created or replaced; languages not listed (or with an empty title) keep their stored translation. At least one title is required",
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "language": {
+                  "type": "string",
+                  "description": "Language of the translation",
+                  "enum": ["cs", "en"]
+               },
+               "title": {
+                  "type": "string",
+                  "description": "Title. A translation with an empty title is skipped and keeps what is stored"
+               },
+               "role": {
+                  "type": "string",
+                  "nullable": true,
+                  "maxLength": 100,
+                  "description": "Role on the project, e.g. Frontend developer (empty or null clears it)"
+               },
+               "description": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Short description (rich text, sanitised; null clears it)"
+               },
+               "content": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Full content (rich text, sanitised; null clears it)"
+               },
+               "metaTitle": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "SEO meta title (empty or null clears it)"
+               },
+               "metaDescription": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "SEO meta description (empty or null clears it)"
+               }
+            },
+            "required": ["language", "title"],
+            "x-readme-ref-name": "SaveProjectTranslationDto"
+         }
+      },
+      "tagIds": {
+         "description": "Tag IDs in display order (replaces the assigned tags)",
+         "maxItems": 200,
+         "type": "array",
+         "items": { "type": "number" }
+      },
+      "links": {
+         "description": "Links in display order, the first one is the main link (replaces the links)",
+         "maxItems": 11,
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "label": {
+                  "type": "string",
+                  "nullable": true,
+                  "maxLength": 50,
+                  "description": "Link label, e.g. GitHub (the web falls back to the domain when empty)"
+               },
+               "url": { "type": "string", "description": "Link URL", "maxLength": 2048 }
+            },
+            "required": ["url"],
+            "x-readme-ref-name": "ProjectLinkDto"
+         }
+      },
+      "media": {
+         "description": "The complete media list in display order: existing rows to keep (`id`) and new files (`fileId`, `language`). Rows of the project that are not listed are removed",
+         "maxItems": 100,
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": {
+                  "type": "number",
+                  "description": "ID of an existing media row of this project to keep (omit for a new item)"
+               },
+               "fileId": {
+                  "type": "number",
+                  "description": "File to add as a new media row (omit with `id`)"
+               },
+               "language": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Language of a new media row (omit with `id`; null or omitted means all)",
+                  "enum": ["cs", "en"]
+               }
+            },
+            "x-readme-ref-name": "SaveProjectMediaItemDto"
+         }
+      },
+      "status": {
+         "type": "string",
+         "description": "Publication status to set in the same transaction (needs the publish permission). Omit it to keep the current status; a new project is a draft",
+         "enum": ["draft", "published"]
+      },
+      "version": {
+         "type": "integer",
+         "description": "The `version` of the record the change is based on (from its detail). When another one is stored, nothing is written and the answer is 409 with the code VERSION_CONFLICT. Left out, the change is written without the check",
+         "minimum": 0
+      }
+   },
+   "required": [
+      "slug",
+      "thumbnailId",
+      "showOnHomepage",
+      "company",
+      "startYear",
+      "endYear",
+      "translations",
+      "tagIds",
+      "links",
+      "media"
+   ],
+   "x-readme-ref-name": "SaveProjectDto"
+}

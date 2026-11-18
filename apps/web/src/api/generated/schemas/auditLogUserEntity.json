@@ -1,0 +1,20 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "email": {
+         "type": "string",
+         "description": "Sent only to a caller with the `users.read` permission, or to that user."
+      },
+      "firstName": { "type": "string" },
+      "lastName": { "type": "string" },
+      "role": {
+         "type": "object",
+         "properties": { "isAdmin": { "type": "boolean" } },
+         "required": ["isAdmin"],
+         "x-readme-ref-name": "AuditLogUserRoleEntity"
+      }
+   },
+   "required": ["id", "firstName", "lastName", "role"],
+   "x-readme-ref-name": "AuditLogUserEntity"
+}

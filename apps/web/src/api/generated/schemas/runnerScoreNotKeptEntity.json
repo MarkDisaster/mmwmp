@@ -1,0 +1,17 @@
+{
+   "type": "object",
+   "properties": {
+      "kept": {
+         "type": "boolean",
+         "description": "Always false: the run was accepted but not stored",
+         "example": false
+      },
+      "minSeconds": {
+         "type": "number",
+         "description": "Seconds a run has to last to be stored (a longer run can still go unstored over the daily number)",
+         "example": 5
+      }
+   },
+   "required": ["kept", "minSeconds"],
+   "x-readme-ref-name": "RunnerScoreNotKeptEntity"
+}

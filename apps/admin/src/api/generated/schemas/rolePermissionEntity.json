@@ -1,0 +1,10 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "resource": { "type": "string" },
+      "action": { "type": "string" }
+   },
+   "required": ["id", "resource", "action"],
+   "x-readme-ref-name": "RolePermissionEntity"
+}

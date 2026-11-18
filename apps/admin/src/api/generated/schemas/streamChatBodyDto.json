@@ -1,0 +1,32 @@
+{
+   "type": "object",
+   "properties": {
+      "messages": {
+         "type": "array",
+         "minItems": 1,
+         "description": "Vercel AI SDK `UIMessage[]` (the `useChat()` wire shape).",
+         "items": { "type": "object" }
+      },
+      "pageContext": {
+         "description": "The admin page open while the message is sent (`DefaultChatTransport` `body`), so \"this project\" can be resolved. Optional.",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "path": {
+                     "type": "string",
+                     "maxLength": 200,
+                     "pattern": "^\\/",
+                     "description": "Pathname of the admin page, e.g. `/projects/12`.",
+                     "example": "/projects/12"
+                  }
+               },
+               "required": ["path"],
+               "x-readme-ref-name": "ChatPageContextDto"
+            }
+         ]
+      }
+   },
+   "required": ["messages"],
+   "x-readme-ref-name": "StreamChatBodyDto"
+}

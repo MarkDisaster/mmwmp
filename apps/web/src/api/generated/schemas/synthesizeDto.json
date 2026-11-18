@@ -1,0 +1,18 @@
+{
+   "type": "object",
+   "properties": {
+      "text": {
+         "type": "string",
+         "minLength": 1,
+         "maxLength": 4096,
+         "description": "Text to synthesize"
+      },
+      "voice": {
+         "type": "string",
+         "enum": ["nova", "alloy", "echo", "onyx", "shimmer", "fable"],
+         "default": "nova"
+      }
+   },
+   "required": ["text"],
+   "x-readme-ref-name": "SynthesizeDto"
+}

@@ -1,0 +1,14 @@
+{
+   "type": "object",
+   "properties": {
+      "path": {
+         "type": "string",
+         "maxLength": 200,
+         "pattern": "^\\/",
+         "description": "Pathname of the admin page, e.g. `/projects/12`.",
+         "example": "/projects/12"
+      }
+   },
+   "required": ["path"],
+   "x-readme-ref-name": "ChatPageContextDto"
+}

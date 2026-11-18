@@ -1,0 +1,12 @@
+{
+   "type": "object",
+   "properties": {
+      "email": { "type": "string", "format": "email", "example": "user@example.com" },
+      "firstName": { "type": "string" },
+      "lastName": { "type": "string" },
+      "password": { "type": "string", "minLength": 8 },
+      "roleId": { "type": "number", "minimum": 1, "description": "ID of the role to assign" }
+   },
+   "required": ["email", "firstName", "lastName", "password", "roleId"],
+   "x-readme-ref-name": "CreateUserDto"
+}

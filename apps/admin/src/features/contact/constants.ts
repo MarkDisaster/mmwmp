@@ -1,0 +1,1 @@
+export const ABOUT_TITLE_MAX_LENGTH = 120;

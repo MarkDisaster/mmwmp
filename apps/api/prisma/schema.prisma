@@ -1,0 +1,539 @@
+generator client {
+   provider = "prisma-client"
+   output   = "./generated/prisma"
+}
+
+datasource db {
+   provider = "postgresql"
+}
+
+enum EntityStatus {
+   draft
+   published
+
+   @@map("entity_status")
+}
+
+enum Language {
+   cs
+   en
+
+   @@map("language")
+}
+
+enum FileProcessingStatus {
+   PENDING
+   PROCESSING
+   READY
+   FAILED
+
+   @@map("file_processing_status")
+}
+
+enum FileVariantType {
+   thumbnail
+   medium
+   large
+   original
+
+   @@map("file_variant_type")
+}
+
+enum PermissionAction {
+   read
+   create
+   update
+   delete
+   publish
+
+   @@map("permission_action")
+}
+
+enum PermissionResource {
+   projects
+   services
+   tags
+   files
+   users
+   roles
+   contact
+   audit_logs
+   runner_scores
+
+   @@map("permission_resource")
+}
+
+enum SlugRedirectResource {
+   project
+   service
+
+   @@map("slug_redirect_resource")
+}
+
+enum AuditActorType {
+   user
+   ai
+   system
+
+   @@map("audit_actor_type")
+}
+
+model Role {
+   id          Int      @id @default(autoincrement())
+   name        String   @unique
+   isSystem    Boolean  @default(false) @map("is_system")
+   isAdmin     Boolean  @default(false) @map("is_admin")
+   createdById Int?     @map("created_by_id")
+   createdAt   DateTime @default(now()) @map("created_at")
+   updatedAt   DateTime @updatedAt @map("updated_at")
+
+   createdBy   User?            @relation("RoleCreatedBy", fields: [createdById], references: [id])
+   permissions RolePermission[]
+   users       User[]           @relation("UserRole")
+
+   @@map("roles")
+}
+
+model RolePermission {
+   id       Int                @id @default(autoincrement())
+   roleId   Int                @map("role_id")
+   resource PermissionResource
+   action   PermissionAction
+
+   role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+   @@unique([roleId, resource, action])
+   @@map("role_permissions")
+}
+
+model User {
+   id        Int       @id @default(autoincrement())
+   email     String    @unique
+   firstName  String    @map("first_name")
+   lastName   String    @map("last_name")
+   avatarPath String?   @map("avatar_path")
+   roleId               Int       @map("role_id")
+   role                 Role      @relation("UserRole", fields: [roleId], references: [id])
+   deletedAt            DateTime? @map("deleted_at")
+   deactivatedAt        DateTime? @map("deactivated_at")
+   deactivatedById      Int?      @map("deactivated_by_id")
+   sessionsValidAfter   DateTime? @map("sessions_valid_after")
+   deactivatedBy        User?     @relation("UserDeactivatedBy", fields: [deactivatedById], references: [id], onDelete: SetNull)
+   deactivatedUsers     User[]    @relation("UserDeactivatedBy")
+   invitedAt            DateTime? @map("invited_at")
+   acceptedInvitationAt DateTime? @map("accepted_invitation_at")
+   createdAt            DateTime  @default(now()) @map("created_at")
+   updatedAt            DateTime  @updatedAt @map("updated_at")
+
+   auth          Auth?
+   refreshTokens RefreshToken[]
+   projects      Project[]  @relation("ProjectCreatedBy")
+   trashedProjects Project[] @relation("ProjectDeletedBy")
+   files         File[]     @relation("FileCreatedBy")
+   trashedFiles  File[]     @relation("FileDeletedBy")
+   tags          Tag[]     @relation("TagCreatedBy")
+   trashedTags   Tag[]     @relation("TagDeletedBy")
+   services      Service[] @relation("ServiceCreatedBy")
+   trashedServices Service[] @relation("ServiceDeletedBy")
+   roles         Role[]    @relation("RoleCreatedBy")
+   conversations Conversation[]
+   aiInteractions AiInteraction[]
+   auditLogs     AuditLog[]
+
+   @@map("users")
+}
+
+model Auth {
+   id        Int      @id @default(autoincrement())
+   userId    Int      @unique @map("user_id")
+   password  String
+   createdAt DateTime @default(now()) @map("created_at")
+   updatedAt DateTime @updatedAt @map("updated_at")
+
+   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+   @@map("auth")
+}
+
+model RefreshToken {
+   id               Int       @id @default(autoincrement())
+   userId           Int       @map("user_id")
+   token            String?   @unique
+   tokenHash        String?   @unique @map("token_hash")
+   familyId         String?   @map("family_id") @db.Uuid
+   sessionStartedAt DateTime? @map("session_started_at")
+   expiresAt        DateTime  @map("expires_at")
+   isRevoked        Boolean   @default(false) @map("is_revoked")
+   rotatedAt        DateTime? @map("rotated_at")
+   createdAt        DateTime  @default(now()) @map("created_at")
+
+   user User @relation(fields: [userId], references: [id])
+
+   @@index([familyId])
+   @@map("refresh_tokens")
+}
+
+model Project {
+   id             Int          @id @default(autoincrement())
+   title          String       @default("")
+   status         EntityStatus @default(draft)
+   company        String?
+   startYear      Int?         @map("start_year")
+   endYear        Int?         @map("end_year")
+   ongoing        Boolean      @default(false)
+   slug           String       @unique
+   thumbnailId    Int?         @map("thumbnail_id")
+   createdById    Int?         @map("created_by_id")
+   sortOrder      Int          @default(0) @map("sort_order")
+   showOnHomepage Boolean      @default(false) @map("show_on_homepage")
+   publishedAt    DateTime?    @map("published_at")
+   deletedAt      DateTime?    @map("deleted_at")
+   deletedById    Int?         @map("deleted_by_id")
+   originalSlug   String?      @map("original_slug")
+   createdAt      DateTime     @default(now()) @map("created_at")
+   updatedAt      DateTime     @updatedAt @map("updated_at")
+   version        Int          @default(0)
+
+   thumbnail    File?                @relation("ProjectThumbnail", fields: [thumbnailId], references: [id])
+   createdBy    User?                @relation("ProjectCreatedBy", fields: [createdById], references: [id])
+   deletedBy    User?                @relation("ProjectDeletedBy", fields: [deletedById], references: [id], onDelete: SetNull)
+   translations ProjectTranslation[]
+   media        ProjectMedia[]
+   tags         ProjectTag[]
+   links        ProjectLink[]
+   services     ServiceProject[]
+
+   @@index([deletedAt])
+   @@map("projects")
+}
+
+model ProjectTranslation {
+   id              Int      @id @default(autoincrement())
+   projectId       Int      @map("project_id")
+   language        Language
+   title           String
+   role            String?
+   description     String?
+   content         String?
+   metaTitle       String?  @map("meta_title")
+   metaDescription String?  @map("meta_description")
+
+   project Project @relation(fields: [projectId], references: [id])
+
+   @@unique([projectId, language])
+   @@map("project_translations")
+}
+
+model ProjectMedia {
+   id        Int       @id @default(autoincrement())
+   projectId Int       @map("project_id")
+   fileId    Int       @map("file_id")
+   language  Language?
+   sortOrder Int       @default(0) @map("sort_order")
+
+   project Project @relation(fields: [projectId], references: [id])
+   file    File    @relation(fields: [fileId], references: [id])
+
+   @@map("project_media")
+}
+
+model ProjectLink {
+   id        Int     @id @default(autoincrement())
+   projectId Int     @map("project_id")
+   label     String?
+   url       String
+   sortOrder Int     @default(0) @map("sort_order")
+
+   project Project @relation(fields: [projectId], references: [id])
+
+   @@index([projectId])
+   @@map("project_links")
+}
+
+model Tag {
+   id          Int          @id @default(autoincrement())
+   slug        String       @unique
+   color       String?
+   createdById Int?         @map("created_by_id")
+   sortOrder   Int          @default(0) @map("sort_order")
+   deletedAt    DateTime?   @map("deleted_at")
+   deletedById  Int?        @map("deleted_by_id")
+   originalSlug String?     @map("original_slug")
+   createdAt   DateTime     @default(now()) @map("created_at")
+   updatedAt   DateTime     @updatedAt @map("updated_at")
+   version     Int          @default(0)
+
+   createdBy User?        @relation("TagCreatedBy", fields: [createdById], references: [id])
+   deletedBy User?        @relation("TagDeletedBy", fields: [deletedById], references: [id], onDelete: SetNull)
+   projects  ProjectTag[]
+   translations TagTranslation[]
+
+   @@index([deletedAt])
+   @@map("tags")
+}
+
+model TagTranslation {
+   id       Int      @id @default(autoincrement())
+   tagId    Int      @map("tag_id")
+   language Language
+   name     String
+
+   tag Tag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+   @@unique([tagId, language])
+   @@map("tag_translations")
+}
+
+model RunnerScore {
+   id        Int      @id @default(autoincrement())
+   nick      String
+   score     Int
+   seconds   Int
+   hidden    Boolean  @default(false)
+   createdAt DateTime @default(now()) @map("created_at")
+
+   @@index([hidden, score(sort: Desc), createdAt, id])
+   @@index([createdAt])
+   @@map("runner_scores")
+}
+
+model ProjectTag {
+   projectId Int @map("project_id")
+   tagId     Int @map("tag_id")
+   sortOrder Int @default(0) @map("sort_order")
+
+   project Project @relation(fields: [projectId], references: [id])
+   tag     Tag     @relation(fields: [tagId], references: [id])
+
+   @@id([projectId, tagId])
+   @@map("project_tags")
+}
+
+model Service {
+   id             Int          @id @default(autoincrement())
+   title          String       @default("")
+   status         EntityStatus @default(draft)
+   slug           String       @unique
+   sortOrder      Int          @default(0) @map("sort_order")
+   showOnHomepage Boolean      @default(false) @map("show_on_homepage")
+   createdById    Int?         @map("created_by_id")
+   publishedAt    DateTime?    @map("published_at")
+   deletedAt      DateTime?    @map("deleted_at")
+   deletedById    Int?         @map("deleted_by_id")
+   originalSlug   String?      @map("original_slug")
+   createdAt      DateTime     @default(now()) @map("created_at")
+   updatedAt      DateTime     @updatedAt @map("updated_at")
+   version        Int          @default(0)
+
+   createdBy    User?                @relation("ServiceCreatedBy", fields: [createdById], references: [id])
+   deletedBy    User?                @relation("ServiceDeletedBy", fields: [deletedById], references: [id], onDelete: SetNull)
+   translations ServiceTranslation[]
+   projects     ServiceProject[]
+
+   @@index([deletedAt])
+   @@map("services")
+}
+
+model ServiceTranslation {
+   id          Int      @id @default(autoincrement())
+   serviceId   Int      @map("service_id")
+   language    Language
+   title       String
+   description String?
+   content     String?
+   metaTitle       String?  @map("meta_title")
+   metaDescription String?  @map("meta_description")
+
+   service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+   @@unique([serviceId, language])
+   @@map("service_translations")
+}
+
+model ServiceProject {
+   serviceId Int @map("service_id")
+   projectId Int @map("project_id")
+   sortOrder Int  @default(0) @map("sort_order")
+
+   service Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+   project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+   @@id([serviceId, projectId])
+   @@map("service_projects")
+}
+
+model SlugRedirect {
+   id        Int                  @id @default(autoincrement())
+   resource  SlugRedirectResource
+   oldSlug   String               @map("old_slug")
+   targetId  Int                  @map("target_id")
+   createdAt DateTime             @default(now()) @map("created_at")
+
+   @@unique([resource, oldSlug])
+   @@index([resource, targetId])
+   @@map("slug_redirects")
+}
+
+model File {
+   id               Int                  @id @default(autoincrement())
+   filename         String
+   originalName     String               @map("original_name")
+   displayName      String?              @map("display_name")
+   altText          String?              @map("alt_text")
+   mimeType         String               @map("mime_type")
+   size             Int
+   width            Int?
+   height           Int?
+   storagePath      String               @map("storage_path")
+   language         Language?
+   processingStatus FileProcessingStatus @default(READY) @map("processing_status")
+   processingError  String?              @map("processing_error")
+   createdById      Int?                 @map("created_by_id")
+   deletedAt        DateTime?            @map("deleted_at")
+   deletedById      Int?                 @map("deleted_by_id")
+   version          Int                  @default(0)
+   createdAt        DateTime             @default(now()) @map("created_at")
+
+   createdBy         User?          @relation("FileCreatedBy", fields: [createdById], references: [id])
+   deletedBy         User?          @relation("FileDeletedBy", fields: [deletedById], references: [id], onDelete: SetNull)
+   projectThumbnails Project[]      @relation("ProjectThumbnail")
+   projectMedia      ProjectMedia[]
+   variants          FileVariant[]
+
+   @@index([deletedAt])
+   @@map("files")
+}
+
+model FileVariant {
+   id          Int             @id @default(autoincrement())
+   fileId      Int             @map("file_id")
+   variant     FileVariantType
+   storagePath String          @map("storage_path")
+   mimeType    String          @map("mime_type")
+   size        Int
+   width       Int?
+   height      Int?
+
+   file File @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+   @@unique([fileId, variant])
+   @@map("file_variants")
+}
+
+model Contact {
+   id          Int      @id @default(autoincrement())
+   companyName String?  @map("company_name")
+   phone       String?
+   email       String?
+   street      String?
+   zip         String?
+   city        String?
+   ico         String?
+   vatPayer    Boolean  @default(false) @map("vat_payer")
+   linkedinUrl String?  @map("linkedin_url")
+   githubUrl   String?  @map("github_url")
+   createdAt   DateTime @default(now()) @map("created_at")
+   updatedAt   DateTime @updatedAt @map("updated_at")
+   version     Int      @default(0)
+
+   translations ContactTranslation[]
+
+   @@map("contacts")
+}
+
+model ContactTranslation {
+   id          Int      @id @default(autoincrement())
+   contactId   Int      @map("contact_id")
+   language    Language
+   description String?
+   aboutTitle  String?  @map("about_title")
+
+   contact Contact @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+   @@unique([contactId, language])
+   @@map("contact_translations")
+}
+
+model Conversation {
+   id        String   @id @default(uuid())
+   userId    Int      @map("user_id")
+   title     String?
+   createdAt DateTime @default(now()) @map("created_at")
+   updatedAt DateTime @updatedAt @map("updated_at")
+
+   user         User           @relation(fields: [userId], references: [id])
+   messages     Message[]
+   interactions AiInteraction[]
+   auditLogs    AuditLog[]
+
+   @@index([userId, updatedAt(sort: Desc)])
+   @@map("conversations")
+}
+
+model Message {
+   id             String   @id @default(uuid())
+   conversationId String   @map("conversation_id")
+   role           String
+   content        Json
+   createdAt      DateTime @default(now()) @map("created_at")
+   updatedAt      DateTime @default(now()) @updatedAt @map("updated_at")
+   version        Int      @default(0)
+
+   conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+   @@index([conversationId, createdAt])
+   @@map("messages")
+}
+
+model AiInteraction {
+   id              Int      @id @default(autoincrement())
+   conversationId  String   @map("conversation_id")
+   userId          Int?     @map("user_id")
+   provider        String
+   model           String
+   inputTokens     Int      @map("input_tokens")
+   outputTokens    Int      @map("output_tokens")
+   totalTokens     Int      @map("total_tokens")
+   cacheReadTokens  Int? @map("cache_read_tokens")
+   cacheWriteTokens Int? @map("cache_write_tokens")
+   inputCostCents  Decimal  @default(0) @map("input_cost_cents") @ignore @db.Decimal(12, 6)
+   outputCostCents Decimal  @default(0) @map("output_cost_cents") @ignore @db.Decimal(12, 6)
+   totalCostCents  Decimal  @default(0) @map("total_cost_cents") @ignore @db.Decimal(12, 6)
+   latencyMs       Int      @map("latency_ms")
+   toolCallCount   Int      @default(0) @map("tool_call_count")
+   stepCount       Int      @default(0) @map("step_count")
+   finishReason    String?  @map("finish_reason")
+   error           String?
+   createdAt       DateTime @default(now()) @map("created_at")
+
+   conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+   user         User?        @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+   @@index([conversationId])
+   @@index([userId, createdAt])
+   @@index([createdAt])
+   @@map("ai_interactions")
+}
+
+model AuditLog {
+   id             Int            @id @default(autoincrement())
+   userId         Int?           @map("user_id")
+   actorType      AuditActorType @map("actor_type")
+   action         String
+   resourceType   String         @map("resource_type")
+   resourceId     String?        @map("resource_id")
+   metadata       Json?
+   ipAddress      String?        @map("ip_address")
+   userAgent      String?        @map("user_agent")
+   conversationId String?        @map("conversation_id")
+   createdAt      DateTime       @default(now()) @map("created_at")
+
+   user         User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+   conversation Conversation? @relation(fields: [conversationId], references: [id], onDelete: SetNull)
+
+   @@index([userId, createdAt])
+   @@index([resourceType, resourceId])
+   @@index([action, createdAt])
+   @@index([createdAt])
+   @@map("audit_logs")
+}

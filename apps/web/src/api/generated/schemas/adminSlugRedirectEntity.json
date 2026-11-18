@@ -1,0 +1,40 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "oldSlug": {
+         "type": "string",
+         "description": "The former slug that still answers with a permanent redirect"
+      },
+      "targetId": {
+         "type": "number",
+         "description": "Id of the project or service the old slug redirects to"
+      },
+      "targetTitle": {
+         "type": "string",
+         "nullable": true,
+         "description": "Current title of the target"
+      },
+      "targetSlug": {
+         "type": "string",
+         "nullable": true,
+         "description": "Current slug of the target"
+      },
+      "targetState": {
+         "type": "string",
+         "enum": ["published", "draft", "trashed", "missing"],
+         "description": "Only a published target is redirected to; every other state answers 404 like an unknown slug"
+      },
+      "createdAt": { "format": "date-time", "type": "string" }
+   },
+   "required": [
+      "id",
+      "oldSlug",
+      "targetId",
+      "targetTitle",
+      "targetSlug",
+      "targetState",
+      "createdAt"
+   ],
+   "x-readme-ref-name": "AdminSlugRedirectEntity"
+}

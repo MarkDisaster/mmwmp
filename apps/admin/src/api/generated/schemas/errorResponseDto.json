@@ -1,0 +1,34 @@
+{
+   "type": "object",
+   "properties": {
+      "statusCode": { "type": "number", "description": "HTTP status code", "example": 409 },
+      "message": {
+         "description": "What went wrong; the validation pipe sends one message per invalid field",
+         "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }]
+      },
+      "error": {
+         "type": "string",
+         "description": "Name of the HTTP status",
+         "example": "Conflict"
+      },
+      "code": {
+         "description": "Machine-readable reason of the error, for answers a client tells apart (the 409 of a save: a taken slug, a conflict to retry, or a record changed since its `version`). Match it instead of the message text",
+         "example": "SLUG_TAKEN",
+         "allOf": [
+            {
+               "type": "string",
+               "enum": ["SLUG_TAKEN", "CONCURRENT_CHANGE", "BUSY", "VERSION_CONFLICT"],
+               "description": "Machine-readable reason of the error, for answers a client tells apart (the 409 of a save: a taken slug, a conflict to retry, or a record changed since its `version`). Match it instead of the message text",
+               "x-readme-ref-name": "ApiErrorCode"
+            }
+         ]
+      },
+      "currentVersion": {
+         "type": "integer",
+         "description": "The stored `version` of the record, sent with the code VERSION_CONFLICT",
+         "example": 3
+      }
+   },
+   "required": ["statusCode", "message"],
+   "x-readme-ref-name": "ErrorResponseDto"
+}

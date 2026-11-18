@@ -1,0 +1,10 @@
+{
+   "type": "object",
+   "properties": {
+      "firstName": { "type": "string", "description": "First name" },
+      "lastName": { "type": "string", "description": "Last name" },
+      "password": { "type": "string", "minLength": 8, "description": "Password" }
+   },
+   "required": ["firstName", "lastName", "password"],
+   "x-readme-ref-name": "AcceptInvitationDto"
+}

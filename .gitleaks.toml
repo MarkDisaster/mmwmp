@@ -1,0 +1,40 @@
+# gitleaks configuration (CI job `gitleaks`, .github/workflows/gitleaks.yml).
+# Default rules plus a handful of exceptions for test fixtures that are not secrets.
+#
+# Rules for adding an exception (details: docs/DEVELOPMENT.md, section "Bezpečnost"):
+# - one allowlist = one file (`paths`, an exact path) + the regex of one concrete fake value
+#   (`regexes`), `condition = "AND"` so that both must match;
+# - never a whole directory or a glob such as `**/.next/**`: a real secret in that path would pass;
+# - a finding in a real file is a leaked secret: rotate it, do not add it here.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Fake JWT secret of the API unit tests (validateEnv input)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^apps/api/src/config/env/__tests__/(validate|app\.config)\.spec\.ts$''']
+regexes = ['''^jwt-secret-0123456789abcdef0123456789$''']
+
+[[allowlists]]
+description = "Fake JWT secret of the API e2e test setup (global-setup)"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^apps/api/test/setup/global-setup\.ts$''']
+regexes = ['''^test-jwt-secret-0123456789abcdef0123456789$''']
+
+# The same preview token test vector is pinned in the API and in the web test; it is signed with
+# the key of the unit tests (base64 of a payload of a fake project, expired in 2023).
+[[allowlists]]
+description = "Preview token test vector of the API"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^apps/api/src/preview/__tests__/preview-token\.spec\.ts$''']
+regexes = ['''^eyJyZXNvdXJjZSI6InByb2plY3RzIiwiaWQiOjcsInNsdWciOiJteS1wcm9qZWN0IiwibG9jYWxlIjoiZW4iLCJleHAiOjE3MDAwMDAzMDB9''']
+
+[[allowlists]]
+description = "Preview token test vector of the web app"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''^apps/web/src/(features/draft-preview/)?utils/__tests__/previewToken\.test\.ts$''']
+regexes = ['''^eyJyZXNvdXJjZSI6InByb2plY3RzIiwiaWQiOjcsInNsdWciOiJteS1wcm9qZWN0IiwibG9jYWxlIjoiZW4iLCJleHAiOjE3MDAwMDAzMDB9''']

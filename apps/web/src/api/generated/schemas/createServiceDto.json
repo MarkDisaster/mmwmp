@@ -1,0 +1,15 @@
+{
+   "type": "object",
+   "properties": {
+      "title": { "type": "string", "description": "Service title" },
+      "slug": {
+         "type": "string",
+         "description": "URL-friendly slug (lowercase alphanumeric with hyphens)"
+      },
+      "language": { "type": "string", "description": "Primary language", "enum": ["cs", "en"] },
+      "description": { "type": "string", "description": "Short description" },
+      "content": { "type": "string", "description": "Rich text content" }
+   },
+   "required": ["title", "slug", "language"],
+   "x-readme-ref-name": "CreateServiceDto"
+}

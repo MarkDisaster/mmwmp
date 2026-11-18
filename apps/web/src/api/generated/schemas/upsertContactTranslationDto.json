@@ -1,0 +1,19 @@
+{
+   "type": "object",
+   "properties": {
+      "language": { "type": "string", "enum": ["cs", "en"] },
+      "description": {
+         "type": "string",
+         "nullable": true,
+         "description": "Localized about-me description"
+      },
+      "aboutTitle": {
+         "type": "string",
+         "nullable": true,
+         "maxLength": 120,
+         "description": "Localized heading of the About section. Plain text (HTML is stripped), trimmed. Omit to keep the current value; empty or null clears it and the web falls back to its default title"
+      }
+   },
+   "required": ["language"],
+   "x-readme-ref-name": "UpsertContactTranslationDto"
+}

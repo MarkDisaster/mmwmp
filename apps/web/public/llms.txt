@@ -1,0 +1,29 @@
+# Marek Marek — Software Developer
+
+> Marek Marek is a Prague-based software developer with 15+ years of experience in web development and 5+ years building production web applications in React. Specializes in React, Next.js, TypeScript, Node.js, and UI/UX design.
+
+About:
+
+- Name: Marek Marek
+- Location: Prague, Czech Republic
+- Email: marek@marek.media
+- Languages: Czech (native), English (professional)
+
+Skills / Expertise:
+
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, NestJS, PostgreSQL, Redis
+- Design: UI/UX design, design systems
+- Platforms: SaaS applications, e-commerce, digital products
+
+## Key Pages
+
+- [Homepage](https://marek.media/cs): Czech home page, also in [English](https://marek.media/en)
+- [Projects](https://marek.media/cs/projects): case studies of the projects, also in [English](https://marek.media/en/projects)
+- [About](https://marek.media/cs/about): services and experience, also in [English](https://marek.media/en/about)
+- [Contact](https://marek.media/cs/contact): email, phone and company details, also in [English](https://marek.media/en/contact)
+
+## Social
+
+- [GitHub](https://github.com/MarkDisaster): source code
+- [LinkedIn](https://www.linkedin.com/in/marekmarekcz/): professional profile

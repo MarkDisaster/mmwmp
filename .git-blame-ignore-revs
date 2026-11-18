@@ -1,0 +1,8 @@
+# Mechanical formatting commits, skipped by git blame (git config blame.ignoreRevsFile .git-blame-ignore-revs).
+# A rebase changes these SHAs, so update them before the merge.
+
+# [FE] chore: sort Tailwind classes
+b921fa7958c41d32dcf53cb28729b64b325714c3
+
+# Conversion of default exports to named exports (no change in behaviour)
+973fbacddf3fdc7c208f791c85653e4dc6225e22

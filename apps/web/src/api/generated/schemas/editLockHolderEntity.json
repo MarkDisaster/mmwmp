@@ -1,0 +1,18 @@
+{
+   "type": "object",
+   "properties": {
+      "userId": { "type": "number", "description": "The user who holds the lock", "example": 3 },
+      "name": {
+         "type": "string",
+         "description": "Full name of that user",
+         "example": "Jana Nováková"
+      },
+      "since": {
+         "type": "string",
+         "description": "When the lock was taken (ISO 8601)",
+         "format": "date-time"
+      }
+   },
+   "required": ["userId", "name", "since"],
+   "x-readme-ref-name": "EditLockHolderEntity"
+}

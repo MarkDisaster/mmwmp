@@ -1,0 +1,19 @@
+# Keeps the Docker build context small and keeps local secrets out of it.
+.git
+.vscode
+# Git worktrees inside the repository (gitignored), each a full copy of the monorepo
+.worktrees
+.turbo
+.vercel
+**/node_modules
+**/.next
+**/dist
+**/coverage
+**/storybook-static
+**/*.log
+**/*.tsbuildinfo
+# Generated files are rebuilt inside the image
+apps/api/prisma/generated
+# Local environment files (the .example files are not needed to build)
+**/.env
+**/.env.*

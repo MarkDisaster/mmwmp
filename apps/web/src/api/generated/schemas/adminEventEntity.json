@@ -1,0 +1,31 @@
+{
+   "type": "object",
+   "properties": {
+      "entity": {
+         "allOf": [
+            {
+               "type": "string",
+               "enum": ["projects", "services", "tags", "files", "contact"],
+               "x-readme-ref-name": "EditLockEntity"
+            }
+         ]
+      },
+      "id": { "type": "number", "description": "Id of the record", "example": 12 },
+      "action": {
+         "allOf": [
+            {
+               "type": "string",
+               "enum": ["created", "updated", "deleted", "restored", "moved"],
+               "x-readme-ref-name": "AdminEventAction"
+            }
+         ]
+      },
+      "version": {
+         "type": "number",
+         "nullable": true,
+         "description": "Version of the record after the change; `null` for a permanent delete"
+      }
+   },
+   "required": ["entity", "id", "action", "version"],
+   "x-readme-ref-name": "AdminEventEntity"
+}

@@ -1,0 +1,107 @@
+name: mm-local
+
+services:
+   db:
+      image: postgres:17-alpine
+      environment:
+         POSTGRES_USER: mm
+         POSTGRES_PASSWORD: mm
+         POSTGRES_DB: mm
+      ports:
+         - '127.0.0.1:5432:5432'
+      volumes:
+         - db-data:/var/lib/postgresql/data
+      healthcheck:
+         test: ['CMD-SHELL', 'pg_isready -U mm -d mm']
+         interval: 5s
+         timeout: 3s
+         retries: 20
+
+   redis:
+      image: redis:7-alpine
+      healthcheck:
+         test: ['CMD', 'redis-cli', 'ping']
+         interval: 5s
+         timeout: 3s
+         retries: 20
+
+   s3:
+      image: adobe/s3mock:5.2.3
+      environment:
+         COM_ADOBE_TESTING_S3MOCK_STORE_INITIAL_BUCKETS: mm-media
+         COM_ADOBE_TESTING_S3MOCK_STORE_ROOT: /s3mockroot
+         COM_ADOBE_TESTING_S3MOCK_STORE_RETAIN_FILES_ON_EXIT: 'true'
+      ports:
+         - '127.0.0.1:9090:9090'
+      volumes:
+         - s3-data:/s3mockroot
+      healthcheck:
+         test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:9090/ >/dev/null 2>&1 || exit 1']
+         interval: 5s
+         timeout: 5s
+         retries: 30
+         start_period: 5s
+
+   api:
+      build:
+         context: .
+         dockerfile: Dockerfile
+      depends_on:
+         db:
+            condition: service_healthy
+         redis:
+            condition: service_healthy
+         s3:
+            condition: service_healthy
+      ports:
+         - '127.0.0.1:3247:3247'
+      environment:
+         NODE_ENV: development
+         APP_ENV: development
+         PORT: 3247
+         DATABASE_URL: postgresql://mm:mm@db:5432/mm
+         DATABASE_URL_UNPOOLED: postgresql://mm:mm@db:5432/mm
+         REDIS_URL: redis://redis:6379
+         JWT_SECRET: local-dev-jwt-secret-not-for-production
+         JWT_REFRESH_SECRET: local-dev-jwt-refresh-secret-not-for-production
+         PREVIEW_URL_SIGNING_KEY: local-dev-preview-url-signing-key-not-secret
+         PREVIEW_API_TOKEN: local-dev-preview-api-token-not-a-secret
+         REVALIDATE_SECRET: local-dev-revalidate-secret-not-for-production
+         ADMIN_URL: http://localhost:3147
+         WEB_URL: http://localhost:3047
+         CORS_ORIGINS: http://localhost:3147,http://localhost:3047
+         R2_ENDPOINT: http://s3:9090
+         R2_BUCKET: mm-media
+         R2_PUBLIC_URL: http://localhost:9090/mm-media
+         R2_ACCESS_KEY_ID: local
+         R2_SECRET_ACCESS_KEY: local
+         R2_FORCE_PATH_STYLE: 'true'
+         RESEND_API_KEY: re_local_dummy
+         EMAIL_FROM: local@localhost
+         LLM_PROVIDER: ${LLM_PROVIDER:-google}
+         GOOGLE_GENERATIVE_AI_API_KEY: ${GOOGLE_GENERATIVE_AI_API_KEY:-}
+         AI_TOOL_APPROVAL_SECRET: local-dev-ai-tool-approval-secret-not-secret
+      healthcheck:
+         test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3247/health >/dev/null 2>&1 || exit 1']
+         interval: 5s
+         timeout: 5s
+         retries: 40
+         start_period: 15s
+
+   seed:
+      build:
+         context: .
+         dockerfile: Dockerfile
+         target: builder
+      profiles: ['tools']
+      depends_on:
+         api:
+            condition: service_healthy
+      working_dir: /app/apps/api
+      environment:
+         DATABASE_URL: postgresql://mm:mm@db:5432/mm
+      command: ['node_modules/.bin/tsx', 'prisma/seed.ts']
+
+volumes:
+   db-data:
+   s3-data:

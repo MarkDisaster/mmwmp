@@ -1,0 +1,12 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "projectId": { "type": "number" },
+      "label": { "type": "string", "nullable": true },
+      "url": { "type": "string" },
+      "sortOrder": { "type": "number" }
+   },
+   "required": ["id", "projectId", "label", "url", "sortOrder"],
+   "x-readme-ref-name": "ProjectLinkEntity"
+}

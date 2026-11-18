@@ -1,0 +1,12 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "projectId": { "type": "number" },
+      "fileId": { "type": "number" },
+      "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+      "sortOrder": { "type": "number" }
+   },
+   "required": ["id", "projectId", "fileId", "language", "sortOrder"],
+   "x-readme-ref-name": "ProjectMediaEntity"
+}

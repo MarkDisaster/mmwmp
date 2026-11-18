@@ -1,0 +1,10 @@
+{
+   "type": "object",
+   "properties": {
+      "title": { "type": "string" },
+      "description": { "type": "string", "nullable": true },
+      "content": { "type": "string", "nullable": true }
+   },
+   "required": ["title"],
+   "x-readme-ref-name": "GenerateServiceTranslationRequestDto"
+}

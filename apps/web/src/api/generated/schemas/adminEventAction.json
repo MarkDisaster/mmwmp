@@ -1,0 +1,5 @@
+{
+   "type": "string",
+   "enum": ["created", "updated", "deleted", "restored", "moved"],
+   "x-readme-ref-name": "AdminEventAction"
+}

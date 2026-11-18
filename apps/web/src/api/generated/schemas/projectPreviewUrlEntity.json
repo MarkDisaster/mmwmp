@@ -1,0 +1,11 @@
+{
+   "type": "object",
+   "properties": {
+      "previewUrl": {
+         "type": "string",
+         "description": "URL of the web draft mode that opens the project preview"
+      }
+   },
+   "required": ["previewUrl"],
+   "x-readme-ref-name": "ProjectPreviewUrlEntity"
+}

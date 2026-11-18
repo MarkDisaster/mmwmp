@@ -1,0 +1,13 @@
+{
+   "$schema": "https://turborepo.dev/schema.json",
+   "extends": ["//"],
+   "tasks": {
+      "build": {
+         "dependsOn": ["^build", "generate", "typecheck"]
+      },
+      "typecheck": {
+         "dependsOn": ["topo", "generate"],
+         "env": ["NEXT_PUBLIC_*", "ROBOTS_NOINDEX", "ENABLE_DOMAIN_REDIRECTS"]
+      }
+   }
+}

@@ -1,0 +1,9 @@
+{
+   "type": "object",
+   "properties": {
+      "firstName": { "type": "string", "description": "First name" },
+      "lastName": { "type": "string", "description": "Last name" }
+   },
+   "required": ["firstName", "lastName"],
+   "x-readme-ref-name": "UpdateNameDto"
+}

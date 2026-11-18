@@ -1,0 +1,15 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "serviceId": { "type": "number" },
+      "language": { "type": "string", "enum": ["cs", "en"] },
+      "title": { "type": "string" },
+      "description": { "type": "string", "nullable": true },
+      "content": { "type": "string", "nullable": true },
+      "metaTitle": { "type": "string", "nullable": true },
+      "metaDescription": { "type": "string", "nullable": true }
+   },
+   "required": ["id", "serviceId", "language", "title"],
+   "x-readme-ref-name": "ServiceTranslationEntity"
+}

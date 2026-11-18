@@ -1,0 +1,11 @@
+{
+   "type": "object",
+   "properties": {
+      "rank": {
+         "type": "number",
+         "description": "Place on the leaderboard the score would take, from 1; counted up to 50000 runs ahead, a score with more ranks 50001"
+      }
+   },
+   "required": ["rank"],
+   "x-readme-ref-name": "RunnerRankEntity"
+}

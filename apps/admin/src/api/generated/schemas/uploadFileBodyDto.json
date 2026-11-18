@@ -1,0 +1,18 @@
+{
+   "type": "object",
+   "properties": {
+      "displayName": {
+         "type": "string",
+         "maxLength": 255,
+         "description": "Display name for the file. Trimmed"
+      },
+      "language": {
+         "type": "string",
+         "description": "Language of the file content",
+         "enum": ["cs", "en"]
+      },
+      "file": { "type": "string", "format": "binary", "description": "The file, at most 10 MB" }
+   },
+   "required": ["file"],
+   "x-readme-ref-name": "UploadFileBodyDto"
+}

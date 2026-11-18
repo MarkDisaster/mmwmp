@@ -1,0 +1,963 @@
+{
+   "chat": {
+      "name": "AURORA",
+      "openChat": "Open AURORA chat",
+      "close": "Close",
+      "newConversation": "New conversation",
+      "newConversationPlus": "+ New conversation",
+      "history": "History",
+      "conversationFallback": "Conversation {{prefix}}",
+      "modes": {
+         "fullpage": "Full page",
+         "sidebar": "Sidebar",
+         "floating": "Floating window"
+      },
+      "input": {
+         "placeholder": "Ask Aurora…",
+         "send": "Send"
+      },
+      "attachment": {
+         "add": "Attach a file",
+         "remove": "Remove attachment",
+         "uploadFailed": "Could not upload: {{files}}. Send the message again to upload only these files."
+      },
+      "voice": {
+         "startRecording": "Start voice input",
+         "stopRecording": "Stop recording",
+         "transcribing": "Transcribing…",
+         "playAloud": "Play aloud",
+         "stopPlayback": "Stop playback",
+         "modeOn": "Enable voice mode",
+         "modeOff": "Disable voice mode",
+         "errors": {
+            "microphoneUnavailable": "The microphone is not available. Allow access to it in the browser.",
+            "recognitionFailed": "Speech recognition failed.",
+            "transcriptionFailed": "The recording could not be transcribed.",
+            "unsupported": "This browser does not support voice input.",
+            "playbackUnsupported": "This browser cannot read text aloud.",
+            "playbackFailed": "The text could not be read aloud."
+         }
+      },
+      "autoEdit": {
+         "on": "Auto-edit on",
+         "off": "Auto-edit off"
+      },
+      "list": {
+         "emptyTitle": "Start a new conversation.",
+         "emptyDescription": "Aurora can read and edit projects, services, tags, users, roles, files and contact. Upload a file by dropping, pasting (Cmd+V), or using the <attach /> button.",
+         "loading": "Loading conversation…",
+         "thinking": "Thinking…",
+         "loadError": "Failed to load the conversation.",
+         "createError": "Failed to start a new conversation. Check your connection.",
+         "retry": "Try again"
+      },
+      "error": {
+         "generic": "Aurora ran into an error.",
+         "dismiss": "Dismiss"
+      },
+      "approval": {
+         "editedBy": "{{name}} is editing this record right now.",
+         "approve": "Confirm",
+         "filesCount": "{{count}} records to change",
+         "targetStatus": "Target status: {{status}}",
+         "tagLabel": "Tag: {{name}} (id {{id}})",
+         "tagTarget": "Tag id {{id}}",
+         "tagSlug": "Slug: {{slug}}",
+         "tagName": "{{language}}: {{name}}",
+         "tagNameRemoved": "{{language}}: remove",
+         "tagColor": "Color: {{color}}",
+         "totalSize": "Total size: {{size}}",
+         "fileRename": "{{name}} → {{value}}",
+         "fileLanguage": "{{name}}: language → {{language}}",
+         "fileAlt": "{{name}}: alt → {{alt}}",
+         "fileDelete": "{{name}} ({{size}})",
+         "projectTitle": "{{title}}",
+         "userLabel": "User: {{name}} ({{email}}, id {{id}})",
+         "userEmail": "User: {{email}} (id {{id}})",
+         "userTarget": "User id {{id}} (name not loaded in the admin)",
+         "roleLabel": "Role: {{name}} (id {{id}})",
+         "roleTarget": "Role id {{id}}",
+         "permissionsGrant": "Grant ({{count}}):",
+         "permissionsRevoke": "Revoke ({{count}}):",
+         "permissionsUnchanged": "The permissions do not change",
+         "permissionsFullSet": "Whole new permission set ({{count}}). The current one is not loaded, the role loses everything not listed:",
+         "permissionsNone": "No permissions: the role loses all of them",
+         "status": {
+            "published": "published",
+            "draft": "draft (unpublished)"
+         },
+         "filesMore": "… and {{count}} more",
+         "showAll": "Show all changes",
+         "showLess": "Show less",
+         "deny": "Cancel",
+         "processing": "Processing..."
+      }
+   },
+   "validation": {
+      "passwordsDoNotMatch": "Passwords do not match",
+      "yearInvalid": "Enter a year as YYYY ({{min}}–{{max}})",
+      "endYearRequiresStart": "Fill in the start year first",
+      "endYearBeforeStart": "End year must not be before the start year",
+      "urlInvalid": "Enter a valid URL including https://",
+      "linksMax": "A project can have at most {{max}} links"
+   },
+   "common": {
+      "fieldLock": "Lock of the {{field}} field",
+      "loading": "Loading...",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "search": "Search",
+      "clearSearch": "Clear search",
+      "close": "Close",
+      "showPassword": "Show password",
+      "hidePassword": "Hide password",
+      "pickColor": "Pick a color",
+      "language": {
+         "cs": "Czech",
+         "en": "English"
+      },
+      "removeLanguage": "Remove language {{language}}",
+      "preview": "Preview",
+      "noResults": "No results",
+      "noResultsHint": "Try a different search or filter.",
+      "optionsTruncated": "Showing the first {{shown}} of {{total}}; the search covers these only.",
+      "noRecords": "Nothing here yet",
+      "loadError": "Could not load the data",
+      "retry": "Try again",
+      "mutationError": "The action could not be completed. Please try again.",
+      "formInvalid": "The form contains errors. Fix the highlighted fields.",
+      "formInvalidLanguage": "The form contains errors. Fix the highlighted fields (language: {{language}}).",
+      "unsavedChanges": {
+         "title": "Unsaved changes",
+         "description": "You have unsaved changes. If you leave the page, they will be lost.",
+         "confirm": "Leave without saving",
+         "cancel": "Stay on the page"
+      },
+      "sortableBadges": {
+         "instructions": "Press space to pick up an item, move it with the arrow keys, press space to drop it and Escape to cancel.",
+         "pickedUp": "Item {{name}} picked up, position {{position}} of {{total}}.",
+         "movedTo": "Item {{name}} is at position {{position}} of {{total}}.",
+         "dropped": "Item {{name}} dropped at position {{position}} of {{total}}.",
+         "cancelled": "Move cancelled."
+      },
+      "routeErrorDescription": "The page could not be displayed. Please try again.",
+      "notFoundTitle": "Page not found",
+      "notFoundDescription": "The page does not exist or has been deleted.",
+      "backHome": "Back to the dashboard",
+      "viewMode": {
+         "table": "Table view",
+         "grid": "Grid view"
+      },
+      "pagination": {
+         "total": "Total: {{count}}",
+         "perPage": "Per page",
+         "previous": "Previous",
+         "next": "Next",
+         "label": "Pagination",
+         "page": "Page {{page}}"
+      },
+      "error": "An error occurred",
+      "table": {
+         "languages": "Languages",
+         "author": "Author"
+      },
+      "reorder": {
+         "roleDescription": "sortable row",
+         "instructions": "To move a row, press Space, choose the position with the up and down arrow keys, and press Space to drop it. Escape cancels the move.",
+         "pickedUp": "Row picked up, position {{position}} of {{total}}.",
+         "movedTo": "Row is at position {{position}} of {{total}}.",
+         "dropped": "Row dropped at position {{position}} of {{total}}.",
+         "cancelled": "Move cancelled.",
+         "card": {
+            "roleDescription": "sortable card",
+            "instructions": "To move a card, press Space, choose the position with the arrow keys, and press Space to drop it. Escape cancels the move.",
+            "pickedUp": "Card picked up, position {{position}} of {{total}}.",
+            "movedTo": "Card is at position {{position}} of {{total}}.",
+            "dropped": "Card dropped at position {{position}} of {{total}}."
+         },
+         "hintLabel": "Help on ordering",
+         "dragHandle": "Drag to reorder",
+         "sortHint": "Drag-and-drop ordering is available in the table without sorting by another column.",
+         "sortHintWithCards": "Drag-and-drop ordering is available in the table and in the card view without sorting by another column. Clear the sorting in the table."
+      },
+      "readOnly": {
+         "permission": "You don't have permission to change this record.",
+         "published": "This record is published. Only a role with the publish permission can change it."
+      },
+      "versionConflict": {
+         "title": "This record changed in the meantime",
+         "description": "Your changes were not saved. Load the current version. Your unsaved changes will be discarded.",
+         "reload": "Load current version",
+         "close": "Close",
+         "deleted": "Someone deleted this record in the meantime, the current version cannot be loaded.",
+         "reloadFailed": "The current version could not be loaded, try again."
+      },
+      "editLock": {
+         "heldBy": "{{name}} is editing this record (since {{time}}). If you both save, one of you will get a conflict.",
+         "takenOver": "{{name}} took over editing. If you both save, one of you will get a conflict.",
+         "takeOver": "Take over editing"
+      },
+      "newerVersion": {
+         "message": "This record changed outside the form, for example AURORA or another user edited it, or you changed its status. Saving it will end in a conflict.",
+         "reload": "Load current version"
+      },
+      "httpError": {
+         "publishedContentLocked": "Only a role with the publish permission can change published content.",
+         "tooManyRequests": "Too many requests, try again in a moment.",
+         "payloadTooLarge": "The file is too large."
+      }
+   },
+   "auth": {
+      "login": "Log in",
+      "logout": "Log out",
+      "email": "Email",
+      "password": "Password",
+      "loginTitle": "Login",
+      "loginDescription": "Sign in to administration",
+      "invalidCredentials": "Invalid email or password",
+      "profile": "Profile",
+      "forgotPassword": "Forgot password?",
+      "forgotPasswordTitle": "Forgot password",
+      "forgotPasswordDescription": "Enter your email and we'll send you a password reset link",
+      "forgotPasswordSubmit": "Send link",
+      "forgotPasswordSuccess": "If the email exists, we'll send a password reset link",
+      "resetPasswordTitle": "Set new password",
+      "resetPasswordDescription": "Enter your new password and repeat it to confirm",
+      "resetPasswordSubmit": "Set password",
+      "resetPasswordSuccess": "Password changed successfully",
+      "resetPasswordInvalidLink": "This password reset link has expired or has already been used.",
+      "resetPasswordRequestNewLink": "Request a new link",
+      "confirmPassword": "Confirm password",
+      "invitation": {
+         "title": "Complete registration",
+         "description": "Fill in your details and set your password",
+         "submit": "Create account",
+         "success": "Account created successfully",
+         "error": "Invitation is invalid or expired",
+         "invalidTitle": "Invalid invitation",
+         "invalidDescription": "This link is invalid or has expired. Please ask the administrator for a new invitation."
+      },
+      "rateLimited": "Too many login attempts. Try again in {{time}}.",
+      "toast": {
+         "loginSuccess": "Login successful",
+         "loginError": "Invalid email or password",
+         "logoutSuccess": "Logged out"
+      }
+   },
+   "nav": {
+      "dashboard": "Dashboard",
+      "projects": "Projects",
+      "tags": "Tags",
+      "users": "Users",
+      "roles": "Roles",
+      "files": "Files",
+      "contact": "Contact",
+      "services": "Services",
+      "language": "Language",
+      "openMenu": "Open menu",
+      "menu": "Menu",
+      "auditLog": "Audit log",
+      "runnerScores": "Game",
+      "trash": "Trash"
+   },
+   "dashboard": {
+      "title": "Dashboard",
+      "overview": "Overview",
+      "stats": {
+         "projects": "Projects",
+         "users": "Users",
+         "tags": "Tags"
+      },
+      "recentProjects": {
+         "title": "Recent projects",
+         "table": {
+            "name": "Name",
+            "status": "Status",
+            "createdAt": "Created"
+         }
+      },
+      "quickActions": {
+         "newProject": "New project",
+         "newTag": "New tag"
+      },
+      "aurora": {
+         "title": "AURORA today",
+         "turns": "Questions",
+         "turnsHint": "Messages you sent to AURORA today.",
+         "errors": "Errors",
+         "errorsHint": "Replies that failed because of an AI service error.",
+         "error": "Stats unavailable"
+      },
+      "game": {
+         "title": "Game",
+         "topPlayers": "Top players",
+         "rank": "Rank",
+         "player": "Player",
+         "time": "Time",
+         "score": "Score",
+         "totalScores": "Total scores",
+         "lastScore": "Latest score",
+         "empty": "No scores yet",
+         "error": "Game stats unavailable"
+      }
+   },
+   "projects": {
+      "title": "Projects",
+      "create": "New project",
+      "edit": "Edit project",
+      "table": {
+         "name": "Name",
+         "status": "Status",
+         "mainLink": "Main link",
+         "sortOrder": "Order",
+         "createdAt": "Created",
+         "updatedAt": "Updated",
+         "actions": "Actions"
+      },
+      "status": {
+         "draft": "Draft",
+         "published": "Published",
+         "all": "All"
+      },
+      "form": {
+         "title": "Title",
+         "slug": "Slug",
+         "slugLocked": "locked",
+         "slugUnlocked": "unlocked",
+         "description": "Description",
+         "content": "Content",
+         "metaTitle": "Meta title",
+         "metaDescription": "Meta description",
+         "tags": "Tags",
+         "addTag": "Add tag",
+         "searchTags": "Search tags...",
+         "media": "Media",
+         "save": "Save",
+         "saveDraft": "Save as draft",
+         "publish": "Publish",
+         "unpublish": "Revert to draft",
+         "thumbnail": "Thumbnail",
+         "thumbnailChange": "Change",
+         "thumbnailRemove": "Remove",
+         "mediaLanguageAll": "All languages",
+         "mediaRemove": "Remove",
+         "showOnHomepage": "Show on homepage",
+         "addManually": "Manually",
+         "generateAI": "Generate with AI",
+         "generateAIHint": "Fill in the Czech version first",
+         "regenerateAI": "Regenerate with AI",
+         "preview": "Show preview",
+         "role": "Role",
+         "company": "Company",
+         "startYear": "Start year",
+         "endYear": "End year",
+         "ongoing": "Ongoing",
+         "links": "Links",
+         "linksLimitReached": "Limit of {{max}} links reached. Remove one to add another.",
+         "linkRemoved": "Link {{position}} removed. Links left: {{count}}.",
+         "moveLink": "Move link",
+         "moveLinkInstructions": "Press Space to pick up the link, the arrow keys to move it, Space to drop it and Escape to cancel.",
+         "linkPickedUp": "Picked up the link at position {{position}}.",
+         "linkMovedOver": "Link moved to position {{position}} of {{total}}.",
+         "linkDropped": "Link dropped at position {{position}}.",
+         "linkDragCancelled": "Moving the link was cancelled.",
+         "linkUrl": "Link URL",
+         "addLink": "Add link",
+         "removeLink": "Remove link",
+         "sections": {
+            "content": "Page content",
+            "seo": "SEO",
+            "detail": "Detail",
+            "details": "Details"
+         },
+         "mediaHint": "Add a file by dragging it in, choosing it from your computer or from the gallery.",
+         "mediaMove": "Move",
+         "mediaDownload": "Download",
+         "mediaEdit": "Edit",
+         "removeTag": "Remove tag",
+         "moveTag": "Move tag"
+      },
+      "toast": {
+         "created": "Project created",
+         "saved": "Project saved",
+         "published": "Project published",
+         "unpublished": "Project reverted to draft",
+         "deleted": "Project moved to trash",
+         "translationGenerated": "Translation generated",
+         "error": "Failed to save project",
+         "saveInvalid": "The project could not be saved: the server rejected some of the data.",
+         "saveForbidden": "The project could not be saved: you do not have permission for this action.",
+         "saveMissing": "The project could not be saved: the project, thumbnail, file or tag no longer exists.",
+         "saveConflict": "The project could not be saved: the same data was being changed at the same time. Nothing was stored, try saving again.",
+         "translationFailed": "The translation could not be generated",
+         "statusFailed": "The status of the project could not be changed",
+         "deleteFailed": "The project could not be moved to trash",
+         "reorderFailed": "Failed to save the order of the projects"
+      },
+      "delete": {
+         "title": "Move project to trash",
+         "description": "The project disappears from the website and the lists. You can restore it from the trash (as a draft) until it is deleted for good automatically.",
+         "confirm": "Move to trash",
+         "cancel": "Cancel"
+      },
+      "validation": {
+         "slugRequired": "Slug is required",
+         "slugInvalid": "The slug may only contain lowercase letters without accents, digits and single hyphens between them",
+         "slugTaken": "A project with this slug already exists"
+      }
+   },
+   "services": {
+      "title": "Services",
+      "create": "New service",
+      "edit": "Edit service",
+      "table": {
+         "name": "Name",
+         "slug": "Slug",
+         "status": "Status",
+         "sortOrder": "Sort order",
+         "updatedAt": "Updated",
+         "actions": "Actions"
+      },
+      "status": {
+         "all": "All",
+         "draft": "Draft",
+         "published": "Published"
+      },
+      "form": {
+         "title": "Title",
+         "slug": "Slug",
+         "slugLocked": "locked",
+         "slugUnlocked": "unlocked",
+         "description": "Description",
+         "content": "Content",
+         "metaTitle": "SEO title",
+         "metaDescription": "SEO description",
+         "save": "Save",
+         "saveDraft": "Save as draft",
+         "publish": "Publish",
+         "unpublish": "Revert to draft",
+         "projects": "Projects",
+         "addProject": "Add project",
+         "searchProjects": "Search projects...",
+         "showOnHomepage": "Show on homepage",
+         "addManually": "Manually",
+         "generateAI": "Generate with AI",
+         "generateAIHint": "Fill in the Czech version first",
+         "regenerateAI": "Regenerate with AI",
+         "sections": {
+            "content": "Page content",
+            "seo": "SEO",
+            "properties": "Properties"
+         },
+         "removeProject": "Remove project"
+      },
+      "toast": {
+         "created": "Service created",
+         "updated": "Service saved",
+         "published": "Service published",
+         "unpublished": "Service reverted to draft",
+         "deleted": "Service moved to trash",
+         "translationGenerated": "Translation generated",
+         "error": "Failed to save service",
+         "saveInvalid": "The service could not be saved: the server rejected some of the data.",
+         "saveForbidden": "The service could not be saved: you do not have permission for this action.",
+         "saveMissing": "The service could not be saved: the service or one of its projects no longer exists.",
+         "saveConflict": "The service could not be saved: the same data was being changed at the same time. Nothing was stored, try saving again.",
+         "translationFailed": "The translation could not be generated",
+         "statusFailed": "The status of the service could not be changed",
+         "deleteFailed": "The service could not be moved to trash",
+         "reorderFailed": "Could not save the order of the services"
+      },
+      "delete": {
+         "title": "Move service to trash",
+         "description": "The service disappears from the website and the lists. You can restore it from the trash (as a draft) until it is deleted for good automatically.",
+         "confirm": "Move to trash",
+         "cancel": "Cancel"
+      },
+      "validation": {
+         "slugRequired": "Slug is required",
+         "slugInvalid": "The slug may only contain lowercase letters without accents, digits and single hyphens between them",
+         "slugTaken": "A service with this slug already exists"
+      }
+   },
+   "tags": {
+      "title": "Tags",
+      "create": "New tag",
+      "edit": "Edit tag",
+      "table": {
+         "name": "Name",
+         "slug": "Slug",
+         "color": "Color",
+         "sortOrder": "Order",
+         "createdAt": "Created",
+         "updatedAt": "Updated",
+         "actions": "Actions"
+      },
+      "form": {
+         "nameInLanguage": "Name ({{language}})",
+         "nameHint": {
+            "all": "The name is used in every language until you add an English one.",
+            "cs": "The Czech name is used on the Czech site.",
+            "en": "The English name is used on the English site."
+         },
+         "slug": "Slug",
+         "slugLocked": "locked",
+         "slugUnlocked": "unlocked",
+         "color": "Color",
+         "colorPlaceholder": "#0130fe",
+         "save": "Save"
+      },
+      "delete": {
+         "title": "Move tag to trash",
+         "description": "The tag disappears from the lists, the projects and the website but stays attached to its projects. You can restore it from the trash until it is deleted for good automatically.",
+         "confirm": "Move to trash",
+         "cancel": "Cancel"
+      },
+      "toast": {
+         "created": "Tag created",
+         "saved": "Tag saved",
+         "deleted": "Tag moved to trash",
+         "error": "Failed to save tag",
+         "reorderFailed": "Failed to save the order of the tags",
+         "notFound": "The tag does not exist or was deleted",
+         "loadFailed": "Failed to load the tag"
+      }
+   },
+   "users": {
+      "title": "Users",
+      "createBtn": "Create user",
+      "createTitle": "Create new user",
+      "editTitle": "Edit user",
+      "invite": "Invite user",
+      "inviteTitle": "Invite new user",
+      "table": {
+         "name": "Name",
+         "email": "Email",
+         "role": "Role",
+         "status": "Status",
+         "createdAt": "Created",
+         "updatedAt": "Updated",
+         "actions": "Actions"
+      },
+      "status": {
+         "active": "Active",
+         "pending": "Pending invite",
+         "deleted": "Deleted",
+         "deactivated": "Deactivated"
+      },
+      "delete": {
+         "title": "Delete user",
+         "description": "Are you sure you want to delete this user? This cannot be undone. A user with content or history cannot be deleted, deactivate them instead.",
+         "confirm": "Delete",
+         "cancel": "Cancel"
+      },
+      "profile": {
+         "title": "Profile",
+         "firstName": "First name",
+         "lastName": "Last name",
+         "changePassword": "Change password",
+         "currentPassword": "Current password",
+         "newPassword": "New password (min. 8 chars)",
+         "changePasswordBtn": "Change password",
+         "avatar": {
+            "upload": "Upload photo",
+            "hint": "Max 5 MB · JPEG, PNG, WebP, GIF",
+            "uploadTitle": "Upload photo",
+            "dropzoneText": "Click or drag a photo here",
+            "delete": "Delete photo",
+            "deleteTitle": "Delete profile photo",
+            "deleteDescription": "Are you sure you want to delete your profile photo? This action cannot be undone.",
+            "clearImage": "Choose different",
+            "cropConfirm": "Apply",
+            "zoom": "Zoom",
+            "toast": {
+               "uploaded": "Profile photo updated",
+               "deleted": "Profile photo deleted",
+               "error": "Failed to upload photo",
+               "invalidType": "This file type cannot be used. Choose a JPEG, PNG, WebP or GIF.",
+               "processError": "The photo could not be processed. Choose another one."
+            }
+         },
+         "sections": {
+            "personal": "Personal details"
+         }
+      },
+      "form": {
+         "role": "Role",
+         "selectRole": "Select a role",
+         "password": "Password (min. 8 chars)"
+      },
+      "actions": {
+         "resendInvitation": "Resend invitation",
+         "changeRole": "Change role",
+         "deactivate": "Deactivate user",
+         "reactivate": "Reactivate user"
+      },
+      "toast": {
+         "created": "User created",
+         "createError": "Failed to create user",
+         "updated": "User updated",
+         "updateError": "Failed to update user",
+         "deleted": "User deleted",
+         "invited": "Invitation sent",
+         "inviteError": "Failed to send invitation",
+         "profileSaved": "Profile saved",
+         "passwordChanged": "Password changed, sign in again",
+         "passwordError": "Failed to change password",
+         "invitationResent": "Invitation sent",
+         "roleChanged": "Role changed",
+         "deactivated": "User deactivated",
+         "reactivated": "User reactivated"
+      },
+      "filter": {
+         "all": "All accounts",
+         "active": "Active",
+         "deactivated": "Deactivated"
+      },
+      "deactivate": {
+         "title": "Deactivate user",
+         "description": "{{email}} will no longer be able to sign in and all their sessions end at once. The account, its history and authorship are kept, and the deactivation can be undone at any time.",
+         "confirm": "Deactivate"
+      },
+      "reactivate": {
+         "title": "Reactivate user",
+         "description": "{{email}} will be able to sign in again with their existing password. Earlier sessions are not restored, the user signs in again.",
+         "confirm": "Reactivate"
+      },
+      "deactivatedNotice": "This account is deactivated and cannot sign in."
+   },
+   "roles": {
+      "title": "Roles",
+      "create": "New role",
+      "edit": "Edit role",
+      "admin": "Admin",
+      "system": "System",
+      "fullAccess": "Full access",
+      "adminFullAccess": "Admin role has full access to all resources.",
+      "resourceHeader": "Resource",
+      "resource": {
+         "projects": "Projects",
+         "services": "Services",
+         "tags": "Tags",
+         "files": "Files",
+         "users": "Users",
+         "contact": "Contact",
+         "runner_scores": "Game scores",
+         "roles": "Roles",
+         "audit_logs": "Audit log"
+      },
+      "action": {
+         "read": "Read",
+         "create": "Create",
+         "update": "Update",
+         "delete": "Delete",
+         "publish": "Publish"
+      },
+      "permissionsCount": "{{count}} permissions",
+      "permissionLabel": "{{resource}}: {{action}}",
+      "permissionNotHeld": "Your role doesn't hold this permission, so you can't grant it.",
+      "table": {
+         "name": "Name",
+         "type": "Type",
+         "permissions": "Permissions",
+         "updatedAt": "Updated",
+         "actions": "Actions"
+      },
+      "form": {
+         "name": "Name",
+         "permissions": "Permissions",
+         "sections": {
+            "details": "Role details"
+         }
+      },
+      "toast": {
+         "saved": "Role saved",
+         "deleted": "Role deleted",
+         "permissionsNotSaved": "The role was created, but its permissions could not be saved. Set them again and save."
+      },
+      "delete": {
+         "title": "Delete role",
+         "description": "This action is irreversible. The role will be permanently deleted.",
+         "cancel": "Cancel",
+         "confirm": "Delete"
+      },
+      "readOnly": {
+         "notManageable": "You can't change this role: it is your own role, or it holds permissions your role doesn't have."
+      }
+   },
+   "contact": {
+      "title": "Contact Information",
+      "companyName": "Company name",
+      "phone": "Phone",
+      "email": "Email",
+      "street": "Street",
+      "zip": "ZIP code",
+      "city": "City",
+      "ico": "Company ID",
+      "vatPayer": "VAT payer",
+      "linkedinUrl": "LinkedIn URL",
+      "githubUrl": "GitHub URL",
+      "description": "Description",
+      "aboutTitle": "About section heading",
+      "aboutTitleHint": "An empty field uses the site's default heading.",
+      "placeholder": {
+         "companyName": "Company Ltd.",
+         "phone": "+420 123 456 789",
+         "email": "info@company.com",
+         "street": "Street 123/4",
+         "zip": "110 00",
+         "city": "Prague",
+         "ico": "12345678",
+         "linkedinUrl": "https://linkedin.com/in/...",
+         "githubUrl": "https://github.com/...",
+         "description": "Short about-me text shown on the public site."
+      },
+      "toast": {
+         "saved": "Contact information saved"
+      },
+      "sections": {
+         "intro": "About me",
+         "contact": "Contact",
+         "company": "Billing details",
+         "social": "Social networks"
+      }
+   },
+   "files": {
+      "title": "Files",
+      "upload": "Upload file",
+      "table": {
+         "preview": "Preview",
+         "name": "Name",
+         "size": "Size",
+         "dimensions": "Dimensions",
+         "createdAt": "Uploaded",
+         "actions": "Actions",
+         "url": "URL",
+         "author": "Uploaded by",
+         "language": "Language",
+         "copyUrl": "Copy URL"
+      },
+      "uploadDialog": {
+         "title": "Upload file",
+         "description": "Drag and drop a file here or click to select",
+         "dropHere": "Drop the file here",
+         "uploading": "Uploading…",
+         "name": "File name",
+         "cancel": "Cancel",
+         "language": "Language",
+         "failed": "The upload failed",
+         "retry": "Try again",
+         "uploadingTitle": "Uploading the file",
+         "failedDetail": "Try again."
+      },
+      "preview": {
+         "title": "File preview",
+         "download": "Download",
+         "copyUrl": "Copy URL",
+         "edit": "Edit",
+         "openOriginal": "Open original"
+      },
+      "delete": {
+         "title": "Move file to trash",
+         "description": "\"{{name}}\" disappears from the library and the website. Projects that use it keep the reference. You can restore it from the trash until it is deleted for good automatically. Until then the stored file, with its variants, stays reachable at its public storage address; to remove it at once, use \"Delete permanently\" in the trash.",
+         "confirm": "Move to trash",
+         "cancel": "Cancel"
+      },
+      "toast": {
+         "uploaded": "The file was added.",
+         "deleted": "File moved to trash",
+         "error": "An error occurred",
+         "updated": "File updated",
+         "copied": "URL copied"
+      },
+      "editDialog": {
+         "title": "Edit file",
+         "name": "File name",
+         "altText": "Image description (alt)",
+         "altTextHint": "Describes the image for search engines and screen readers. Write it in the language of the file, short and factual. Shown for images only, at most 300 characters.",
+         "altTextHintLabel": "Image description help",
+         "language": "Language",
+         "languagePlaceholder": "Select language",
+         "noLanguage": "No language",
+         "save": "Save",
+         "currentImage": "Current image",
+         "currentFile": "Current file"
+      },
+      "processing": {
+         "pending": "Pending",
+         "processing": "Processing…",
+         "failed": "Processing failed"
+      },
+      "field": {
+         "drop": {
+            "file": "Drag a file here to upload it, or choose an existing one",
+            "image": "Drag an image here to upload it, or choose an existing one"
+         },
+         "touch": {
+            "file": "Dragging a file is not available. Choose a file with the “Choose file” button or from the gallery.",
+            "image": "Dragging a file is not available. Choose an image with the “Choose image” button or from the gallery."
+         },
+         "choose": {
+            "file": "Choose file",
+            "image": "Choose image"
+         },
+         "chooseGallery": "Choose from gallery",
+         "maxSize": "Maximum size: {{size}} MB.",
+         "types": {
+            "file": "Supported types: images (JPG, PNG, WebP, GIF, SVG), PDF, DOC, DOCX, XLSX, PPTX, TXT, ZIP, RAR, 7Z, MP4, WebM.",
+            "image": "Supported types: JPG, PNG, WebP, GIF, SVG."
+         },
+         "error": {
+            "tooLarge": {
+               "title": "The file is too large",
+               "detail": "The maximum size is {{size}} MB."
+            },
+            "invalidType": {
+               "title": "This type of file is not supported"
+            },
+            "notImage": {
+               "title": "Only an image can be uploaded"
+            }
+         },
+         "dropHint": {
+            "file": "E.g. an image or a PDF.",
+            "image": "E.g. JPG or PNG."
+         },
+         "added": "The file was added successfully.",
+         "helpLabel": "Supported file types and size"
+      }
+   },
+   "filePicker": {
+      "title": "Choose from gallery",
+      "upload": "Upload from computer",
+      "noFiles": "No files. Upload your first file.",
+      "uploading": "Uploading…"
+   },
+   "textEditor": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "strike": "Strikethrough",
+      "heading2": "Heading 2",
+      "heading3": "Heading 3",
+      "bulletList": "Bullet list",
+      "orderedList": "Numbered list",
+      "link": "Link",
+      "image": "Image",
+      "table": "Table",
+      "addRow": "Add row",
+      "addColumn": "Add column",
+      "deleteRow": "Delete row",
+      "deleteColumn": "Delete column",
+      "deleteTable": "Delete table",
+      "htmlSource": "HTML source",
+      "copyHtml": "Copy",
+      "copied": "Copied",
+      "copyFailed": "Copying failed",
+      "undo": "Undo",
+      "redo": "Redo"
+   },
+   "linkDialog": {
+      "title": "Link",
+      "url": "URL",
+      "urlPlaceholder": "https://… or /path-on-the-site",
+      "newTab": "Open in a new window",
+      "remove": "Remove link",
+      "invalid": "This URL is not allowed."
+   },
+   "auditLog": {
+      "title": "Audit log",
+      "table": {
+         "date": "Date",
+         "actor": "User",
+         "action": "Action",
+         "resource": "Resource",
+         "metadata": "Metadata"
+      },
+      "actorType": {
+         "user": "User",
+         "admin": "Admin",
+         "ai": "AI",
+         "system": "System"
+      },
+      "filters": {
+         "all": "All",
+         "action": "Filter by action (e.g. project.create)",
+         "resourceType": "Resource type",
+         "actorType": "User type",
+         "from": "Date from",
+         "to": "Date to"
+      }
+   },
+   "runnerScores": {
+      "title": "Game scores",
+      "visible": "Visible",
+      "hidden": "Hidden",
+      "hide": "Hide",
+      "show": "Show",
+      "table": {
+         "nick": "Name",
+         "score": "Score",
+         "duration": "Run length",
+         "visibility": "Visibility",
+         "createdAt": "Saved",
+         "actions": "Actions"
+      },
+      "delete": {
+         "title": "Delete score",
+         "description": "Do you really want to delete this score? This cannot be undone.",
+         "confirm": "Delete",
+         "cancel": "Cancel"
+      },
+      "toast": {
+         "hidden": "Score hidden",
+         "shown": "Score shown",
+         "deleted": "Score deleted"
+      }
+   },
+   "trash": {
+      "title": "Trash",
+      "description": "Deleted items stay here and can be restored until they are deleted for good automatically (see Days left).",
+      "tabs": {
+         "projects": "Projects",
+         "services": "Services",
+         "tags": "Tags",
+         "files": "Files"
+      },
+      "table": {
+         "name": "Name",
+         "deletedAt": "Deleted",
+         "deletedBy": "Deleted by",
+         "daysLeft": "Days left",
+         "actions": "Actions"
+      },
+      "daysLeft_one": "{{count}} day",
+      "daysLeft_other": "{{count}} days",
+      "dueSoon": "Today",
+      "unknownUser": "Unknown",
+      "empty": "The trash is empty",
+      "emptyDescription": "Deleted items of this kind appear here.",
+      "restore": "Restore",
+      "restoreTitle": "Restore \"{{name}}\"",
+      "restoreDescription": "It comes back as a draft, at the end of the order.",
+      "restoreDescriptionTag": "It comes back as a draft and returns to its projects.",
+      "restoreDescriptionFile": "Projects that use it show it again.",
+      "restoreConfirm": "Restore",
+      "deletePermanently": "Delete permanently",
+      "deleteTitle": "Delete \"{{name}}\" permanently",
+      "deleteDescription": "This cannot be undone. It is deleted together with everything that belongs to it.",
+      "deleteConfirm": "Delete permanently",
+      "cancel": "Cancel",
+      "toast": {
+         "restored": "Restored from trash",
+         "restoreFailed": "It could not be restored",
+         "restoreConflict": "It could not be restored: its address (slug) or name is used by another item now. Rename or delete that one first.",
+         "deleted": "Deleted permanently",
+         "deleteFailed": "It could not be deleted",
+         "deleteInUse": "It cannot be deleted: a project still uses this file. Remove it from the project or restore it."
+      },
+      "fileInTrash": "This file is in the trash. The website does not show it.",
+      "fileInTrashShort": "In trash"
+   }
+}

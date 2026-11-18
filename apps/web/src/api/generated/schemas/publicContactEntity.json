@@ -1,0 +1,39 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "companyName": { "type": "string", "nullable": true },
+      "phone": { "type": "string", "nullable": true },
+      "email": { "type": "string", "nullable": true },
+      "street": { "type": "string", "nullable": true },
+      "zip": { "type": "string", "nullable": true },
+      "city": { "type": "string", "nullable": true },
+      "ico": { "type": "string", "nullable": true },
+      "vatPayer": { "type": "boolean" },
+      "linkedinUrl": { "type": "string", "nullable": true },
+      "githubUrl": { "type": "string", "nullable": true },
+      "translations": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "contactId": { "type": "number" },
+               "language": { "type": "string", "enum": ["cs", "en"] },
+               "description": { "type": "string", "nullable": true },
+               "aboutTitle": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "Heading of the About section; null = the web uses its default title"
+               }
+            },
+            "required": ["id", "contactId", "language"],
+            "x-readme-ref-name": "ContactTranslationEntity"
+         }
+      },
+      "createdAt": { "type": "string" },
+      "updatedAt": { "type": "string" }
+   },
+   "required": ["id", "vatPayer", "translations", "createdAt", "updatedAt"],
+   "x-readme-ref-name": "PublicContactEntity"
+}

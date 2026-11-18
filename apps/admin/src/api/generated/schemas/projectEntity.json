@@ -1,0 +1,318 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "title": { "type": "string" },
+      "status": { "type": "string", "enum": ["draft", "published"] },
+      "company": { "type": "string", "nullable": true },
+      "startYear": { "type": "number", "nullable": true },
+      "endYear": {
+         "type": "number",
+         "nullable": true,
+         "description": "Year the work ended. Null when it is not set or the project is ongoing"
+      },
+      "ongoing": {
+         "type": "boolean",
+         "description": "The project is still running: the web shows startYear to the current year. Requires startYear and no endYear"
+      },
+      "slug": { "type": "string" },
+      "thumbnailId": { "type": "number", "nullable": true },
+      "thumbnail": {
+         "nullable": true,
+         "type": "object",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "id": { "type": "number" },
+                  "filename": { "type": "string" },
+                  "originalName": { "type": "string" },
+                  "displayName": { "type": "string", "nullable": true },
+                  "altText": {
+                     "type": "string",
+                     "nullable": true,
+                     "description": "Description of the image in the language of the file (the `alt` attribute)"
+                  },
+                  "mimeType": { "type": "string" },
+                  "size": { "type": "number" },
+                  "width": { "type": "number", "nullable": true },
+                  "height": { "type": "number", "nullable": true },
+                  "storagePath": { "type": "string" },
+                  "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+                  "processingStatus": {
+                     "type": "string",
+                     "enum": ["PENDING", "PROCESSING", "READY", "FAILED"]
+                  },
+                  "processingError": { "type": "string", "nullable": true },
+                  "createdById": { "type": "number", "nullable": true },
+                  "createdBy": {
+                     "nullable": true,
+                     "type": "object",
+                     "allOf": [
+                        {
+                           "type": "object",
+                           "properties": {
+                              "id": { "type": "number" },
+                              "firstName": { "type": "string" },
+                              "lastName": { "type": "string" },
+                              "email": {
+                                 "type": "string",
+                                 "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                              }
+                           },
+                           "required": ["id", "firstName", "lastName"],
+                           "x-readme-ref-name": "AuthorEntity"
+                        }
+                     ]
+                  },
+                  "createdAt": { "type": "string" },
+                  "version": {
+                     "type": "integer",
+                     "description": "Raised by every change; send it back as `version` of the next change"
+                  },
+                  "deletedAt": {
+                     "type": "string",
+                     "nullable": true,
+                     "description": "Set when the file is in the trash. Only a project detail can show such a file (the project keeps its reference); the library and the public endpoints leave it out."
+                  },
+                  "publicUrl": { "type": "string" },
+                  "variants": {
+                     "type": "array",
+                     "items": {
+                        "type": "object",
+                        "properties": {
+                           "id": { "type": "number" },
+                           "variant": {
+                              "type": "string",
+                              "enum": ["thumbnail", "medium", "large", "original"]
+                           },
+                           "storagePath": { "type": "string" },
+                           "mimeType": { "type": "string" },
+                           "size": { "type": "number" },
+                           "width": { "type": "number", "nullable": true },
+                           "height": { "type": "number", "nullable": true },
+                           "publicUrl": { "type": "string" }
+                        },
+                        "required": [
+                           "id",
+                           "variant",
+                           "storagePath",
+                           "mimeType",
+                           "size",
+                           "width",
+                           "height",
+                           "publicUrl"
+                        ],
+                        "x-readme-ref-name": "FileVariantEntity"
+                     }
+                  }
+               },
+               "required": [
+                  "id",
+                  "filename",
+                  "originalName",
+                  "displayName",
+                  "altText",
+                  "mimeType",
+                  "size",
+                  "width",
+                  "height",
+                  "storagePath",
+                  "language",
+                  "processingStatus",
+                  "processingError",
+                  "createdById",
+                  "createdAt",
+                  "version",
+                  "publicUrl",
+                  "variants"
+               ],
+               "x-readme-ref-name": "FileEntity"
+            }
+         ]
+      },
+      "createdById": { "type": "number", "nullable": true },
+      "createdBy": {
+         "nullable": true,
+         "type": "object",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "id": { "type": "number" },
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "email": {
+                     "type": "string",
+                     "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                  }
+               },
+               "required": ["id", "firstName", "lastName"],
+               "x-readme-ref-name": "AuthorEntity"
+            }
+         ]
+      },
+      "sortOrder": { "type": "number" },
+      "showOnHomepage": { "type": "boolean" },
+      "publishedAt": { "format": "date-time", "type": "string", "nullable": true },
+      "createdAt": { "format": "date-time", "type": "string" },
+      "updatedAt": { "format": "date-time", "type": "string" },
+      "version": {
+         "type": "integer",
+         "description": "Raised by every change; send it back as `version` of the next change"
+      },
+      "translations": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "projectId": { "type": "number" },
+               "language": { "type": "string", "enum": ["cs", "en"] },
+               "title": { "type": "string" },
+               "role": { "type": "string", "nullable": true },
+               "description": { "type": "string", "nullable": true },
+               "content": { "type": "string", "nullable": true },
+               "metaTitle": { "type": "string", "nullable": true },
+               "metaDescription": { "type": "string", "nullable": true }
+            },
+            "required": ["id", "projectId", "language", "title"],
+            "x-readme-ref-name": "ProjectTranslationEntity"
+         }
+      },
+      "tags": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "projectId": { "type": "number" },
+               "tagId": { "type": "number" },
+               "tag": {
+                  "type": "object",
+                  "properties": {
+                     "id": { "type": "number" },
+                     "translations": {
+                        "description": "Names of the tag: `cs` always, `en` when it has one (else use `cs`)",
+                        "type": "array",
+                        "items": {
+                           "type": "object",
+                           "properties": {
+                              "language": { "type": "string", "enum": ["cs", "en"] },
+                              "name": {
+                                 "type": "string",
+                                 "description": "Name of the tag in this language"
+                              }
+                           },
+                           "required": ["language", "name"],
+                           "x-readme-ref-name": "TagTranslationEntity"
+                        }
+                     },
+                     "slug": {
+                        "type": "string",
+                        "description": "Language-independent identity of the tag"
+                     },
+                     "color": { "type": "string", "nullable": true },
+                     "sortOrder": {
+                        "type": "number",
+                        "description": "Display position, lower first"
+                     },
+                     "createdAt": { "format": "date-time", "type": "string" },
+                     "updatedAt": { "format": "date-time", "type": "string" },
+                     "version": {
+                        "type": "integer",
+                        "description": "Raised by every change; send it back as `version` of the next change"
+                     },
+                     "createdBy": {
+                        "nullable": true,
+                        "type": "object",
+                        "allOf": [
+                           {
+                              "type": "object",
+                              "properties": {
+                                 "id": { "type": "number" },
+                                 "firstName": { "type": "string" },
+                                 "lastName": { "type": "string" },
+                                 "email": {
+                                    "type": "string",
+                                    "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                                 }
+                              },
+                              "required": ["id", "firstName", "lastName"],
+                              "x-readme-ref-name": "AuthorEntity"
+                           }
+                        ]
+                     }
+                  },
+                  "required": [
+                     "id",
+                     "translations",
+                     "slug",
+                     "color",
+                     "sortOrder",
+                     "createdAt",
+                     "updatedAt",
+                     "version"
+                  ],
+                  "x-readme-ref-name": "TagEntity"
+               }
+            },
+            "required": ["projectId", "tagId", "tag"],
+            "x-readme-ref-name": "ProjectTagEntity"
+         }
+      },
+      "links": {
+         "description": "Links in display order; the first one is the main project link",
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "projectId": { "type": "number" },
+               "label": { "type": "string", "nullable": true },
+               "url": { "type": "string" },
+               "sortOrder": { "type": "number" }
+            },
+            "required": ["id", "projectId", "label", "url", "sortOrder"],
+            "x-readme-ref-name": "ProjectLinkEntity"
+         }
+      },
+      "media": {
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "id": { "type": "number" },
+               "projectId": { "type": "number" },
+               "fileId": { "type": "number" },
+               "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+               "sortOrder": { "type": "number" }
+            },
+            "required": ["id", "projectId", "fileId", "language", "sortOrder"],
+            "x-readme-ref-name": "ProjectMediaEntity"
+         }
+      }
+   },
+   "required": [
+      "id",
+      "title",
+      "status",
+      "company",
+      "startYear",
+      "endYear",
+      "ongoing",
+      "slug",
+      "thumbnailId",
+      "createdById",
+      "sortOrder",
+      "showOnHomepage",
+      "publishedAt",
+      "createdAt",
+      "updatedAt",
+      "version",
+      "translations",
+      "tags",
+      "links",
+      "media"
+   ],
+   "x-readme-ref-name": "ProjectEntity"
+}

@@ -1,0 +1,13 @@
+{
+   "type": "object",
+   "properties": {
+      "sessionId": {
+         "type": "string",
+         "minLength": 8,
+         "maxLength": 64,
+         "description": "Random id of the open browser tab"
+      }
+   },
+   "required": ["sessionId"],
+   "x-readme-ref-name": "ReleaseEditLockDto"
+}

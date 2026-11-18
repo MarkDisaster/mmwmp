@@ -1,0 +1,22 @@
+{
+   "type": "object",
+   "properties": {
+      "title": { "type": "string", "description": "Project title" },
+      "slug": {
+         "type": "string",
+         "description": "URL-friendly slug (lowercase alphanumeric with hyphens)"
+      },
+      "language": { "type": "string", "description": "Primary language", "enum": ["cs", "en"] },
+      "role": {
+         "type": "string",
+         "maxLength": 100,
+         "description": "Role on the project, e.g. Frontend developer"
+      },
+      "description": { "type": "string", "description": "Short description" },
+      "content": { "type": "string", "description": "Full content (HTML/Markdown)" },
+      "metaTitle": { "type": "string", "description": "SEO meta title" },
+      "metaDescription": { "type": "string", "description": "SEO meta description" }
+   },
+   "required": ["title", "slug", "language"],
+   "x-readme-ref-name": "CreateProjectDto"
+}

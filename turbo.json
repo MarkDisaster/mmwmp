@@ -1,0 +1,35 @@
+{
+   "$schema": "https://turborepo.dev/schema.json",
+   "globalDependencies": ["eslint.config.mjs", ".prettierrc", "tsconfig.base.json"],
+   "tasks": {
+      "generate": {
+         "inputs": ["prisma/schema.prisma", "prisma.config.ts"],
+         "outputs": ["prisma/generated/**"]
+      },
+      "build": {
+         "dependsOn": ["^build", "generate"],
+         "outputs": ["dist/**", ".next/**", "!.next/cache/**", "!.next/dev/**"],
+         "env": ["NEXT_PUBLIC_*", "VITE_*", "ROBOTS_NOINDEX", "ENABLE_DOMAIN_REDIRECTS"],
+         "passThroughEnv": ["SENTRY_AUTH_TOKEN"]
+      },
+      "dev": {
+         "cache": false,
+         "persistent": true
+      },
+      "lint": {
+         "dependsOn": ["^build"]
+      },
+      "lint:ci": {
+         "dependsOn": ["^build"]
+      },
+      "topo": {
+         "dependsOn": ["^topo"]
+      },
+      "typecheck": {
+         "dependsOn": ["topo", "generate"]
+      },
+      "test:unit": {
+         "dependsOn": ["^build", "generate"]
+      }
+   }
+}

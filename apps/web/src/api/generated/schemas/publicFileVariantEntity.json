@@ -1,0 +1,13 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "variant": { "type": "string", "enum": ["thumbnail", "medium", "large", "original"] },
+      "mimeType": { "type": "string" },
+      "width": { "type": "number", "nullable": true },
+      "height": { "type": "number", "nullable": true },
+      "publicUrl": { "type": "string" }
+   },
+   "required": ["id", "variant", "mimeType", "width", "height", "publicUrl"],
+   "x-readme-ref-name": "PublicFileVariantEntity"
+}

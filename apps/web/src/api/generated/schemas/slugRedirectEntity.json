@@ -1,0 +1,11 @@
+{
+   "type": "object",
+   "properties": {
+      "slug": {
+         "type": "string",
+         "description": "The current slug of the record the old slug belonged to"
+      }
+   },
+   "required": ["slug"],
+   "x-readme-ref-name": "SlugRedirectEntity"
+}

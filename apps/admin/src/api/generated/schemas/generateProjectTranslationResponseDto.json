@@ -1,0 +1,12 @@
+{
+   "type": "object",
+   "properties": {
+      "title": { "type": "string" },
+      "description": { "type": "string", "nullable": true },
+      "content": { "type": "string", "nullable": true },
+      "metaTitle": { "type": "string", "nullable": true },
+      "metaDescription": { "type": "string", "nullable": true }
+   },
+   "required": ["title", "description", "content", "metaTitle", "metaDescription"],
+   "x-readme-ref-name": "GenerateProjectTranslationResponseDto"
+}

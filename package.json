@@ -1,0 +1,38 @@
+{
+   "name": "mm-website-monorepo",
+   "private": true,
+   "scripts": {
+      "dev": "turbo dev",
+      "build": "turbo build",
+      "lint": "turbo lint",
+      "knip": "NEXT_PUBLIC_API_URL=http://localhost:3247 NEXT_PUBLIC_SITE_URL=http://localhost:3047 knip",
+      "be:up": "docker compose up -d --build --wait",
+      "be:start": "docker compose up -d --wait",
+      "be:seed": "docker compose run --rm --build -e SEED_ADMIN_EMAIL=admin@local.test -e SEED_ADMIN_PASSWORD=local-dev-password seed",
+      "be:down": "docker compose down",
+      "be:reset": "docker compose down -v",
+      "prepare": "[ -n \"$CI\" ] || lefthook install || echo 'lefthook not installed: see docs/DEVELOPMENT.md, section Git hooks'"
+   },
+   "packageManager": "pnpm@9.15.0",
+   "devDependencies": {
+      "@eslint/js": "^9.39.4",
+      "eslint": "^9.39.4",
+      "eslint-config-prettier": "^10.1.8",
+      "eslint-import-resolver-typescript": "^4.4.5",
+      "eslint-plugin-import": "^2.32.0",
+      "eslint-plugin-jsx-a11y": "^6.10.2",
+      "eslint-plugin-prettier": "^5.5.5",
+      "eslint-plugin-react": "^7.37.5",
+      "eslint-plugin-react-hooks": "^7.0.1",
+      "eslint-plugin-react-refresh": "^0.5.2",
+      "eslint-plugin-simple-import-sort": "^12.1.1",
+      "eslint-plugin-sonarjs": "^4.0.2",
+      "knip": "6.45.1",
+      "lefthook": "^2.2.2",
+      "lint-staged": "^16.4.0",
+      "prettier": "^3.8.1",
+      "prettier-plugin-tailwindcss": "^0.8.1",
+      "turbo": "^2",
+      "typescript-eslint": "^8.59.2"
+   }
+}

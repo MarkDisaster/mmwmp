@@ -1,0 +1,14 @@
+{
+   "type": "object",
+   "properties": {
+      "tags": {
+         "type": "array",
+         "uniqueItems": true,
+         "minItems": 1,
+         "items": { "type": "string", "enum": ["services", "projects", "contact", "tags"] },
+         "description": "Cache tags of the public web to refresh"
+      }
+   },
+   "required": ["tags"],
+   "x-readme-ref-name": "RevalidateWebsiteDto"
+}

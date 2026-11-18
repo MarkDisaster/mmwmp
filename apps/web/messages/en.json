@@ -1,0 +1,312 @@
+{
+   "HomePage": {
+      "title": "Marek Marek | Software Developer",
+      "siteDescription": "Portfolio of software developer Marek Marek.",
+      "metaDescription": "Software developer specializing in React, Next.js and modern web applications. 5+ years of experience building production apps.",
+      "name": "Marek",
+      "role1": "software",
+      "role2": "developer",
+      "cta": "Contact"
+   },
+   "RunnerGame": {
+      "pressStart": "JUMP WITH SPACE",
+      "pressStartTouch": "TAP TO JUMP",
+      "retry": "RETRY",
+      "controls": "Space to jump, hold it to jump higher, Escape to quit.",
+      "controlsTouch": "Tap to jump, hold to jump higher.",
+      "topPlayers": "TOP 10",
+      "showTopPlayers": "Best players",
+      "closeTopPlayers": "Close the leaderboard",
+      "topUnavailable": "The leaderboard cannot be loaded now.",
+      "rank": "RANK",
+      "nickHint": "One to three letters or digits. The score is saved with them on Space and on Escape.",
+      "nick": "NAME",
+      "result": "Game over. Score {score}.",
+      "quit": "QUIT",
+      "resume": "PAUSED · SPACE = RESUME",
+      "resumeTouch": "PAUSED · TAP = RESUME",
+      "newRecord": "NEW RECORD",
+      "score": "SCORE",
+      "record": "BEST",
+      "ariaLabel": "Runner game: Terminal the robot delivers a project to the client past bugs, tests and deadlines.",
+      "phases": {
+         "planning": {
+            "name": "LVL 1",
+            "title": "LVL 1 PLANNING",
+            "subtitle": "Project received. Let's go."
+         },
+         "development": {
+            "name": "LVL 2",
+            "title": "LVL 2 DEVELOPMENT",
+            "subtitle": "Code in progress. Mind the bugs."
+         },
+         "testing": {
+            "name": "LVL 3",
+            "title": "LVL 3 TESTING",
+            "subtitle": "Everything works. Almost."
+         },
+         "launch": {
+            "name": "LVL 4",
+            "title": "LVL 4 LAUNCH",
+            "subtitle": "Deadline in sight."
+         },
+         "delivered": {
+            "name": "DELIVERED",
+            "title": "DELIVERED ✓",
+            "subtitle": "The client got what they wanted."
+         },
+         "maintenance": {
+            "name": "MAINTENANCE",
+            "title": "MAINTENANCE V{version}",
+            "subtitle": "The project lives on."
+         },
+         "version": {
+            "name": "VERSION",
+            "title": "VERSION {version}",
+            "subtitle": "The project lives on."
+         }
+      },
+      "enemies": {
+         "question": {
+            "deaths": [
+               "The brief was clear. Almost.",
+               "The client wanted 3D.",
+               "Should've asked about that."
+            ]
+         },
+         "tbd": {
+            "deaths": ["To be decided.", "We'll fill it in later.", "The brief just said TBD."]
+         },
+         "bug": {
+            "deaths": [
+               "It's not a bug, it's a feature.",
+               "Works on my machine.",
+               "I'll add it to the backlog."
+            ]
+         },
+         "bugs": {
+            "deaths": [
+               "Bugs come in pairs.",
+               "Where there's one bug, there's two.",
+               "These two met in production."
+            ]
+         },
+         "semicolon": {
+            "deaths": ["One missing semicolon.", "Tiny char, big crash.", "SyntaxError on line 47."]
+         },
+         "pit404": {
+            "deaths": [
+               "404: robot not found",
+               "Neither page nor robot found.",
+               "There was a path here."
+            ]
+         },
+         "legacy": {
+            "deaths": [
+               "Do not touch. Ever.",
+               "It works. Nobody knows why.",
+               "Code older than this game."
+            ]
+         },
+         "pit500": {
+            "deaths": [
+               "500: Internal Server Error",
+               "Have you tried restarting it?",
+               "Something broke. A lot."
+            ]
+         },
+         "patched": {
+            "deaths": ["Fixed one. Got two.", "The fix had offspring.", "A fix that needs a fix."]
+         },
+         "cookie": {
+            "deaths": [
+               "Accept all cookies?",
+               "This site uses cookies.",
+               "Where's the Reject button?"
+            ]
+         },
+         "deadlineLow": {
+            "deaths": [
+               "The deadline has passed.",
+               "The estimate was two days.",
+               "The deadline came early."
+            ]
+         },
+         "deadline": {
+            "deaths": [
+               "Deadlines aren't for skipping.",
+               "It'll be done… soon.",
+               "The jump wasn't in the plan."
+            ]
+         },
+         "meeting": {
+            "deaths": [
+               "This could've been an email.",
+               "The meeting ran long.",
+               "Next meeting in 5 minutes."
+            ]
+         },
+         "scopeCreep": {
+            "deaths": [
+               "The tiny tweak grew.",
+               "Small change, big scope.",
+               "Just one more tiny thing…"
+            ]
+         },
+         "merge": {
+            "deaths": ["<<<<<<< HEAD", "Accept both changes?", "A colleague merged first."]
+         },
+         "mobile": {
+            "deaths": [
+               "Worked fine on desktop.",
+               "The client opened it on mobile.",
+               "Safari had other plans."
+            ]
+         },
+         "comment": {
+            "deaths": ["Comment on line 147.", "Changes requested.", "“Why is there no test?”"]
+         },
+         "crowd": {
+            "deaths": [
+               "429: Too Many Requests",
+               "Marketing sent the newsletter.",
+               "Nobody load-tested this."
+            ]
+         },
+         "update": {
+            "deaths": ["Restart now?", "Installing 1 of 47.", "Updates come first."]
+         },
+         "leak": {
+            "deaths": ["Out of memory.", "Someone forgot to clean up.", "Chrome took 8 GB."]
+         },
+         "reschedule": {
+            "deaths": [
+               "The deadline moved. Again.",
+               "We needed it yesterday.",
+               "Can it be done by Friday?"
+            ]
+         },
+         "platform": {
+            "deaths": [
+               "This step wasn't in the brief.",
+               "The bar has been raised.",
+               "Senior bar, junior jump."
+            ]
+         }
+      },
+      "pickupNames": {
+         "commit": "commit",
+         "review": "approved",
+         "deploy": "release",
+         "skill": "tech",
+         "feedback": "feedback",
+         "docs": "docs"
+      },
+      "deliveredName": "DELIVERED"
+   },
+   "Header": {
+      "skipToContent": "Skip to content",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact",
+      "siteNavigation": "Site navigation",
+      "languageName": "English",
+      "menuTitle": "Main navigation",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "home": "marek.media – home page",
+      "github": "GitHub (opens in a new tab)",
+      "linkedin": "LinkedIn (opens in a new tab)",
+      "language": "Language",
+      "darkMode": "Dark mode",
+      "privacy": "Privacy policy",
+      "backToHome": "Back to home"
+   },
+   "Pagination": {
+      "label": "Pagination",
+      "previous": "Previous page",
+      "next": "Next page"
+   },
+   "RichText": {
+      "openTable": "Open table in full screen",
+      "openImage": "Open image in full screen",
+      "close": "Close",
+      "tableTitle": "Table",
+      "imageTitle": "Image"
+   },
+   "Projects": {
+      "title": "Projects",
+      "description": "Portfolio of web projects by Marek Marek — design, development and digital products.",
+      "backToProjects": "Back to projects",
+      "allProjects": "All projects",
+      "mediaFiles": "Files to download",
+      "loadMore": "Load more",
+      "loadingMore": "Loading…",
+      "loadMoreError": "More projects could not be loaded. Please try again.",
+      "role": "Role",
+      "period": "Period",
+      "company": "Company",
+      "stack": "Stack",
+      "links": "Links"
+   },
+   "Services": {
+      "aboutTitle": "About me",
+      "aboutDescription": "Marek Marek — software developer. Building websites, applications and digital products."
+   },
+   "Contact": {
+      "cta": "Contact",
+      "title": "Contact",
+      "metaTitle": "Contact | Marek Marek",
+      "metaDescription": "Contact Marek Marek — software developer for React, Next.js and digital products. Email, phone or company ID for B2B collaboration.",
+      "ico": "Company ID",
+      "notVatPayer": "(non-VAT payer)"
+   },
+   "Preview": {
+      "banner": "Preview mode — <exit>Exit</exit>",
+      "exitDraftMode": "Exit draft mode"
+   },
+   "NotFound": {
+      "code": "404",
+      "label": "error",
+      "subtitle": "not found",
+      "cta": "Back home"
+   },
+   "ErrorPage": {
+      "code": "500",
+      "label": "error",
+      "subtitle": "out of service",
+      "cta": "Try again"
+   },
+   "Privacy": {
+      "metaTitle": "Privacy policy | Marek Marek",
+      "metaDescription": "What marek.media stores and processes, why, for how long, and what rights you have.",
+      "title": "Privacy policy",
+      "lead": "What marek.media stores about you, why and for how long. In short: no analytics and no advertising, only what the site and its mini game need to run.",
+      "whoHeading": "Who runs the site.",
+      "whoText": "The controller of personal data is Marek Marek. Identification and contact details are on the <contact>Contact</contact> page.",
+      "noToolsHeading": "What the site does not use.",
+      "noToolsText": "No analytics, advertising or tracking tools, and no scripts from advertising networks.",
+      "deviceHeading": "What is stored on your device.",
+      "deviceIntro": "It only makes the site work and keeps your settings. We do not use it to track you:",
+      "deviceStorage": "your chosen theme (light or dark), your longest run in the mini game and your last nickname. They are kept in the browser storage (localStorage), stay on your device only, and you can delete them in your browser settings,",
+      "deviceCookie": "the NEXT_LOCALE cookie remembers the language you chose and lasts only for the browser session.",
+      "gameHeading": "Mini game and leaderboard.",
+      "gameText": "After every game that you end or leave (with a new game, the space bar, the Esc key, by going to another page or by closing the page) and that lasted at least 5 seconds, the result is saved on the server: the nickname (1 to 3 letters or digits), the score, the length of the run and the time of saving. The nickname is pre-filled (DOE, or the one you used last) and you can change it before it is sent. The ten best results are shown publicly in the leaderboard. We do not link the nickname to anything else, so choose one that does not identify you. Results older than 30 days that are not among roughly the thousand best are deleted regularly. The best results and the results I have hidden from the leaderboard (for example because of an inappropriate nickname) are kept until I delete them. I will delete a result on request. The legal basis is the legitimate interest in running the game and keeping it secure (Art. 6(1)(f) GDPR).",
+      "ipHeading": "IP address and abuse protection.",
+      "ipText": "To protect the game and the interface from being flooded, we count requests from one IP address. The counter stays in an in-memory service for at most 10 minutes and is not stored with the result. The legal basis is the legitimate interest in keeping the site secure.",
+      "hostingHeading": "Hosting and technical logs.",
+      "hostingText": "The site, the interface and the files run at the providers Vercel, Railway and Cloudflare, the data at the providers of the database (Neon) and the in-memory service (Aiven); they receive data as processors. When a page is delivered they may process technical data (IP address, browser type, time of the request) so the site works and stays secure, and keep it according to their own retention periods. The interface also writes a technical log of every request, including the IP address, the address requested, the browser type and the time. The log is kept at the provider Railway for the period set in its documentation (7 to 30 days depending on the plan). The legal basis is the legitimate interest in running and securing the site. Some providers are based outside the European Union, mainly in the USA. The transfer relies on a European Commission adequacy decision or on standard contractual clauses, depending on how the provider provides for it. I will tell you about the safeguards on request.",
+      "monitoringHeading": "Error reports.",
+      "monitoringText": "When an error occurs in the interface (the API), on the server of the site or in the administration, a technical report of it is sent to the service Sentry (sentry.io), which processes it as a processor; our organization is in a data centre in the European Union. The report contains the error message, the stack trace, the address of the request (without the secret parts of links and without parameters), the time and the version of the application. I do not collect the IP address, cookies, headers or the content of requests, and Sentry does not store the IP address; from the sender's address it derives only an approximate location (country and city). The error message may occasionally contain a piece of the content that was being worked with. The legal basis is the legitimate interest in finding and fixing errors. Your browser loads no Sentry code and sends nothing to it when you visit the public site.",
+      "aiHeading": "AI assistant in the administration.",
+      "aiText": "When the site administrator uses the AI assistant, content from the administration, including nicknames and scores from the leaderboard, may be sent to the AI providers (Anthropic, Google). The content stays in the assistant's conversation history without automatic deletion. The legal basis is the legitimate interest in managing the site.",
+      "contactHeading": "When you write or call me.",
+      "contactText": "I use your e-mail or phone only to answer and to communicate about your enquiry. There is no contact form on the site. The legal basis is the legitimate interest in answering your enquiry, or negotiating a contract at your request (Art. 6(1)(f) and (b) GDPR). I keep the data for as long as the enquiry needs and as long as the law requires.",
+      "automatedHeading": "Voluntary data and automated decisions.",
+      "automatedText": "Saving the result is part of the game. If you do not want your result saved, clear the nickname before you leave, or do not play. You have no other obligation to provide data, no law or contract creates one. We do not make automated decisions or profile visitors.",
+      "rightsHeading": "Your rights.",
+      "rightsText": "You can ask for access to your data, its correction or erasure, restriction of processing, object to processing based on legitimate interest and, where it applies to the processing, ask for portability. No processing on this site relies on your consent, so there is nothing to withdraw. Write to me via the <contact>Contact</contact> page. You can lodge a complaint with the Czech Office for Personal Data Protection (<uoou>uoou.gov.cz</uoou>).",
+      "changesHeading": "Changes.",
+      "changesText": "I may update this policy, the current version is always on this page. Last updated 10 November 2026."
+   }
+}

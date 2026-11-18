@@ -1,0 +1,12 @@
+:root {
+   --brand-black: #000000;
+   --brand-white: #ffffff;
+   --brand-blue: #0130fe;
+   --brand-gray-light: #e7e8ec;
+
+   --brand-dark-bg: #0f0f0f;
+   --brand-dark-muted: #1a1a1a;
+
+   --brand-fixed-white: #ffffff;
+   --brand-fixed-black: #0a0a0a;
+}

@@ -1,0 +1,9 @@
+{
+   "type": "object",
+   "properties": {
+      "data": { "type": "array", "items": { "type": "string" } },
+      "totalCount": { "type": "number" }
+   },
+   "required": ["data", "totalCount"],
+   "x-readme-ref-name": "PaginatedResponseDto"
+}

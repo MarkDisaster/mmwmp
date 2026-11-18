@@ -1,0 +1,28 @@
+{
+   "type": "object",
+   "properties": {
+      "serviceId": { "type": "number" },
+      "projectId": { "type": "number" },
+      "sortOrder": { "type": "number" },
+      "project": {
+         "type": "object",
+         "properties": {
+            "id": { "type": "number" },
+            "slug": { "type": "string" },
+            "translations": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": { "language": { "type": "string" }, "title": { "type": "string" } },
+                  "required": ["language", "title"],
+                  "x-readme-ref-name": "ServiceProjectTranslationEntity"
+               }
+            }
+         },
+         "required": ["id", "slug", "translations"],
+         "x-readme-ref-name": "ServiceProjectItemEntity"
+      }
+   },
+   "required": ["serviceId", "projectId", "sortOrder", "project"],
+   "x-readme-ref-name": "ServiceProjectEntity"
+}

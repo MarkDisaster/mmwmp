@@ -1,0 +1,11 @@
+{
+   "type": "object",
+   "properties": {
+      "hidden": {
+         "type": "boolean",
+         "description": "Hidden scores stay stored but are not shown publicly"
+      }
+   },
+   "required": ["hidden"],
+   "x-readme-ref-name": "UpdateRunnerScoreVisibilityDto"
+}

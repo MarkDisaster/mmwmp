@@ -1,0 +1,9 @@
+{
+   "type": "object",
+   "properties": {
+      "language": { "type": "string", "enum": ["cs", "en"] },
+      "name": { "type": "string", "description": "Name of the tag in this language" }
+   },
+   "required": ["language", "name"],
+   "x-readme-ref-name": "TagTranslationEntity"
+}

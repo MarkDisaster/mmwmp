@@ -1,0 +1,58 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "projectId": { "type": "number" },
+      "fileId": { "type": "number" },
+      "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+      "sortOrder": { "type": "number" },
+      "file": {
+         "type": "object",
+         "properties": {
+            "id": { "type": "number" },
+            "displayName": { "type": "string", "nullable": true },
+            "altText": {
+               "type": "string",
+               "nullable": true,
+               "description": "Description of the image in the language of the file (the `alt` attribute)"
+            },
+            "mimeType": { "type": "string" },
+            "width": { "type": "number", "nullable": true },
+            "height": { "type": "number", "nullable": true },
+            "language": { "type": "string", "nullable": true, "enum": ["cs", "en"] },
+            "variants": {
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "id": { "type": "number" },
+                     "variant": {
+                        "type": "string",
+                        "enum": ["thumbnail", "medium", "large", "original"]
+                     },
+                     "mimeType": { "type": "string" },
+                     "width": { "type": "number", "nullable": true },
+                     "height": { "type": "number", "nullable": true },
+                     "publicUrl": { "type": "string" }
+                  },
+                  "required": ["id", "variant", "mimeType", "width", "height", "publicUrl"],
+                  "x-readme-ref-name": "PublicFileVariantEntity"
+               }
+            }
+         },
+         "required": [
+            "id",
+            "displayName",
+            "altText",
+            "mimeType",
+            "width",
+            "height",
+            "language",
+            "variants"
+         ],
+         "x-readme-ref-name": "PublicFileEntity"
+      }
+   },
+   "required": ["id", "projectId", "fileId", "language", "sortOrder", "file"],
+   "x-readme-ref-name": "PublicProjectMediaEntity"
+}

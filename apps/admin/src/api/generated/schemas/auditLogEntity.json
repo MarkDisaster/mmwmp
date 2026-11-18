@@ -1,0 +1,72 @@
+{
+   "type": "object",
+   "properties": {
+      "id": { "type": "number" },
+      "userId": { "type": "number", "nullable": true },
+      "user": {
+         "nullable": true,
+         "type": "object",
+         "allOf": [
+            {
+               "type": "object",
+               "properties": {
+                  "id": { "type": "number" },
+                  "email": {
+                     "type": "string",
+                     "description": "Sent only to a caller with the `users.read` permission, or to that user."
+                  },
+                  "firstName": { "type": "string" },
+                  "lastName": { "type": "string" },
+                  "role": {
+                     "type": "object",
+                     "properties": { "isAdmin": { "type": "boolean" } },
+                     "required": ["isAdmin"],
+                     "x-readme-ref-name": "AuditLogUserRoleEntity"
+                  }
+               },
+               "required": ["id", "firstName", "lastName", "role"],
+               "x-readme-ref-name": "AuditLogUserEntity"
+            }
+         ]
+      },
+      "actorType": { "type": "string", "enum": ["user", "ai", "system"] },
+      "action": { "type": "string" },
+      "resourceType": { "type": "string" },
+      "resourceId": { "type": "string", "nullable": true },
+      "metadata": {
+         "type": "object",
+         "nullable": true,
+         "description": "Free-form JSON. REST mutations record `method`, `path` and, when present, `params`, `query`, `body`, `error` and `resourceName`; AI tool failures record `input` and `error`.",
+         "properties": {
+            "method": { "type": "string" },
+            "path": { "type": "string" },
+            "params": { "type": "object", "additionalProperties": { "type": "string" } },
+            "query": { "type": "object", "additionalProperties": true },
+            "body": { "description": "Request body with secrets redacted, any JSON value" },
+            "input": { "description": "Tool input with secrets redacted, any JSON value or null" },
+            "error": { "type": "string" },
+            "resourceName": { "type": "string" }
+         },
+         "additionalProperties": true
+      },
+      "ipAddress": { "type": "string", "nullable": true },
+      "userAgent": { "type": "string", "nullable": true },
+      "conversationId": { "type": "string", "nullable": true },
+      "createdAt": { "format": "date-time", "type": "string" }
+   },
+   "required": [
+      "id",
+      "userId",
+      "user",
+      "actorType",
+      "action",
+      "resourceType",
+      "resourceId",
+      "metadata",
+      "ipAddress",
+      "userAgent",
+      "conversationId",
+      "createdAt"
+   ],
+   "x-readme-ref-name": "AuditLogEntity"
+}

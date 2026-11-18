@@ -1,0 +1,6 @@
+{
+   "type": "object",
+   "properties": { "language": { "type": "string" }, "title": { "type": "string" } },
+   "required": ["language", "title"],
+   "x-readme-ref-name": "ServiceProjectTranslationEntity"
+}

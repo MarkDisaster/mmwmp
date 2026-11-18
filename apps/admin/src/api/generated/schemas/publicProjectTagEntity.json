@@ -1,0 +1,55 @@
+{
+   "type": "object",
+   "properties": {
+      "projectId": { "type": "number" },
+      "tagId": { "type": "number" },
+      "tag": {
+         "type": "object",
+         "properties": {
+            "id": { "type": "number" },
+            "translations": {
+               "description": "Names of the tag: `cs` always, `en` when it has one (else use `cs`)",
+               "type": "array",
+               "items": {
+                  "type": "object",
+                  "properties": {
+                     "language": { "type": "string", "enum": ["cs", "en"] },
+                     "name": { "type": "string", "description": "Name of the tag in this language" }
+                  },
+                  "required": ["language", "name"],
+                  "x-readme-ref-name": "TagTranslationEntity"
+               }
+            },
+            "slug": { "type": "string", "description": "Language-independent identity of the tag" },
+            "color": { "type": "string", "nullable": true },
+            "sortOrder": { "type": "number", "description": "Display position, lower first" },
+            "createdAt": { "format": "date-time", "type": "string" },
+            "updatedAt": { "format": "date-time", "type": "string" },
+            "createdBy": {
+               "nullable": true,
+               "type": "object",
+               "allOf": [
+                  {
+                     "type": "object",
+                     "properties": {
+                        "id": { "type": "number" },
+                        "firstName": { "type": "string" },
+                        "lastName": { "type": "string" },
+                        "email": {
+                           "type": "string",
+                           "description": "Sent only to a caller with the `users.read` permission, or to the author."
+                        }
+                     },
+                     "required": ["id", "firstName", "lastName"],
+                     "x-readme-ref-name": "AuthorEntity"
+                  }
+               ]
+            }
+         },
+         "required": ["id", "translations", "slug", "color", "sortOrder", "createdAt", "updatedAt"],
+         "x-readme-ref-name": "PublicTagEntity"
+      }
+   },
+   "required": ["projectId", "tagId", "tag"],
+   "x-readme-ref-name": "PublicProjectTagEntity"
+}

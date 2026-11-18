@@ -1,0 +1,25 @@
+{
+   "type": "object",
+   "properties": {
+      "players": {
+         "description": "The best visible runs, highest first, equal scores in the order they were saved; a nick can appear several times",
+         "type": "array",
+         "items": {
+            "type": "object",
+            "properties": {
+               "nick": { "type": "string", "example": "MMK" },
+               "score": { "type": "number", "description": "The score of one visible run" },
+               "seconds": {
+                  "type": "number",
+                  "description": "How long the run lasted, in whole seconds",
+                  "example": 75
+               }
+            },
+            "required": ["nick", "score", "seconds"],
+            "x-readme-ref-name": "RunnerTopPlayer"
+         }
+      }
+   },
+   "required": ["players"],
+   "x-readme-ref-name": "RunnerTopPlayersEntity"
+}

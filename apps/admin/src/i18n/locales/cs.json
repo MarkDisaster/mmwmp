@@ -1,0 +1,965 @@
+{
+   "chat": {
+      "name": "AURORA",
+      "openChat": "Otevřít AURORA chat",
+      "close": "Zavřít",
+      "newConversation": "Nová konverzace",
+      "newConversationPlus": "+ Nová konverzace",
+      "history": "Historie",
+      "conversationFallback": "Konverzace {{prefix}}",
+      "modes": {
+         "fullpage": "Celá stránka",
+         "sidebar": "Postranní panel",
+         "floating": "Plovoucí okno"
+      },
+      "input": {
+         "placeholder": "Zeptejte se Aurory…",
+         "send": "Odeslat"
+      },
+      "attachment": {
+         "add": "Přiložit soubor",
+         "remove": "Odebrat přílohu",
+         "uploadFailed": "Nepodařilo se nahrát: {{files}}. Odešlete zprávu znovu, nahrají se jen tyto soubory."
+      },
+      "voice": {
+         "startRecording": "Spustit hlasový vstup",
+         "stopRecording": "Zastavit nahrávání",
+         "transcribing": "Přepisuji…",
+         "playAloud": "Přečíst nahlas",
+         "stopPlayback": "Zastavit přehrávání",
+         "modeOn": "Zapnout hlasový režim",
+         "modeOff": "Vypnout hlasový režim",
+         "errors": {
+            "microphoneUnavailable": "Mikrofon není dostupný. Povolte k němu přístup v prohlížeči.",
+            "recognitionFailed": "Rozpoznávání řeči selhalo.",
+            "transcriptionFailed": "Nahrávku se nepodařilo přepsat.",
+            "unsupported": "Tento prohlížeč hlasový vstup nepodporuje.",
+            "playbackUnsupported": "Tento prohlížeč neumí číst text nahlas.",
+            "playbackFailed": "Text se nepodařilo přečíst nahlas."
+         }
+      },
+      "autoEdit": {
+         "on": "Automatické úpravy zapnuty",
+         "off": "Automatické úpravy vypnuty"
+      },
+      "list": {
+         "emptyTitle": "Začněte novou konverzaci.",
+         "emptyDescription": "Aurora umí číst i upravovat projekty, služby, štítky, uživatele, role, soubory a kontakt. Soubor nahrajete přetažením, přilepením (Cmd+V) nebo tlačítkem <attach />.",
+         "loading": "Načítám konverzaci…",
+         "thinking": "Přemýšlím…",
+         "loadError": "Konverzaci se nepodařilo načíst.",
+         "createError": "Konverzaci se nepodařilo vytvořit. Zkontrolujte připojení.",
+         "retry": "Zkusit znovu"
+      },
+      "error": {
+         "generic": "Aurora narazila na chybu.",
+         "dismiss": "Zavřít"
+      },
+      "approval": {
+         "editedBy": "Tento záznam právě upravuje {{name}}.",
+         "approve": "Potvrdit",
+         "filesCount": "{{count}} záznamů ke změně",
+         "targetStatus": "Cílový stav: {{status}}",
+         "tagLabel": "Štítek: {{name}} (id {{id}})",
+         "tagTarget": "Štítek id {{id}}",
+         "tagSlug": "Slug: {{slug}}",
+         "tagName": "{{language}}: {{name}}",
+         "tagNameRemoved": "{{language}}: odebrat",
+         "tagColor": "Barva: {{color}}",
+         "totalSize": "Celková velikost: {{size}}",
+         "fileRename": "{{name}} → {{value}}",
+         "fileLanguage": "{{name}}: jazyk → {{language}}",
+         "fileAlt": "{{name}}: popis obrázku (alt) → {{alt}}",
+         "fileDelete": "{{name}} ({{size}})",
+         "projectTitle": "{{title}}",
+         "userLabel": "Uživatel: {{name}} ({{email}}, id {{id}})",
+         "userEmail": "Uživatel: {{email}} (id {{id}})",
+         "userTarget": "Uživatel id {{id}} (jméno v adminu není načtené)",
+         "roleLabel": "Role: {{name}} (id {{id}})",
+         "roleTarget": "Role id {{id}}",
+         "permissionsGrant": "Udělit ({{count}}):",
+         "permissionsRevoke": "Odebrat ({{count}}):",
+         "permissionsUnchanged": "Oprávnění se nemění",
+         "permissionsFullSet": "Nová úplná sada oprávnění ({{count}}). Současná není načtená, role přijde o vše, co v seznamu není:",
+         "permissionsNone": "Žádná oprávnění: role přijde o všechna",
+         "status": {
+            "published": "publikováno",
+            "draft": "koncept (nepublikováno)"
+         },
+         "filesMore": "… a dalších {{count}}",
+         "showAll": "Zobrazit všechny změny",
+         "showLess": "Zobrazit méně",
+         "deny": "Zrušit",
+         "processing": "Zpracovávám..."
+      }
+   },
+   "validation": {
+      "passwordsDoNotMatch": "Hesla se neshodují",
+      "yearInvalid": "Zadejte rok ve tvaru YYYY ({{min}}–{{max}})",
+      "endYearRequiresStart": "Nejdřív vyplňte rok začátku",
+      "endYearBeforeStart": "Rok konce nesmí být před rokem začátku",
+      "urlInvalid": "Zadejte platnou URL včetně https://",
+      "linksMax": "Projekt může mít nejvýš {{max}} odkazů"
+   },
+   "common": {
+      "fieldLock": "Zámek pole {{field}}",
+      "loading": "Načítání...",
+      "save": "Uložit",
+      "cancel": "Zrušit",
+      "delete": "Smazat",
+      "edit": "Upravit",
+      "error": "Něco se pokazilo",
+      "search": "Hledat",
+      "clearSearch": "Vymazat hledání",
+      "close": "Zavřít",
+      "showPassword": "Zobrazit heslo",
+      "hidePassword": "Skrýt heslo",
+      "pickColor": "Vybrat barvu",
+      "language": {
+         "cs": "Čeština",
+         "en": "Angličtina"
+      },
+      "removeLanguage": "Odebrat jazyk {{language}}",
+      "preview": "Náhled",
+      "noResults": "Žádné výsledky",
+      "noResultsHint": "Zkuste jiné hledání nebo filtr.",
+      "optionsTruncated": "Zobrazeno prvních {{shown}} z {{total}}; hledání prochází jen tyto.",
+      "noRecords": "Zatím tu nic není",
+      "loadError": "Data se nepodařilo načíst",
+      "retry": "Zkusit znovu",
+      "mutationError": "Akci se nepodařilo dokončit. Zkuste to znovu.",
+      "formInvalid": "Formulář obsahuje chyby. Opravte zvýrazněná pole.",
+      "formInvalidLanguage": "Formulář obsahuje chyby. Opravte zvýrazněná pole (jazyk: {{language}}).",
+      "unsavedChanges": {
+         "title": "Neuložené změny",
+         "description": "Máte neuložené změny. Když stránku opustíte, ztratíte je.",
+         "confirm": "Odejít bez uložení",
+         "cancel": "Zůstat na stránce"
+      },
+      "sortableBadges": {
+         "instructions": "Mezerníkem položku zvednete, šipkami ji posunete, mezerníkem položíte a klávesou Escape přesun zrušíte.",
+         "pickedUp": "Položka {{name}} zvednuta, pozice {{position}} z {{total}}.",
+         "movedTo": "Položka {{name}} je na pozici {{position}} z {{total}}.",
+         "dropped": "Položka {{name}} položena na pozici {{position}} z {{total}}.",
+         "cancelled": "Přesun položky zrušen."
+      },
+      "routeErrorDescription": "Stránku se nepodařilo zobrazit. Zkuste to znovu.",
+      "notFoundTitle": "Stránka nenalezena",
+      "notFoundDescription": "Stránka neexistuje nebo byla smazána.",
+      "backHome": "Zpět na přehled",
+      "viewMode": {
+         "table": "Zobrazení tabulky",
+         "grid": "Zobrazení mřížky"
+      },
+      "pagination": {
+         "total": "Celkem: {{count}}",
+         "perPage": "Na stránku",
+         "previous": "Zpět",
+         "next": "Další",
+         "label": "Stránkování",
+         "page": "Stránka {{page}}"
+      },
+      "table": {
+         "languages": "Jazyky",
+         "author": "Autor"
+      },
+      "reorder": {
+         "roleDescription": "přesouvatelný řádek",
+         "instructions": "Pro přesunutí řádku stiskněte mezerník, šipkami nahoru a dolů zvolte pozici a mezerníkem řádek upusťte. Escape přesun zruší.",
+         "pickedUp": "Řádek zvednut, pozice {{position}} z {{total}}.",
+         "movedTo": "Řádek je na pozici {{position}} z {{total}}.",
+         "dropped": "Řádek upuštěn na pozici {{position}} z {{total}}.",
+         "cancelled": "Přesun zrušen.",
+         "card": {
+            "roleDescription": "přesouvatelná karta",
+            "instructions": "Pro přesunutí karty stiskněte mezerník, šipkami zvolte pozici a mezerníkem kartu upusťte. Escape přesun zruší.",
+            "pickedUp": "Karta zvednuta, pozice {{position}} z {{total}}.",
+            "movedTo": "Karta je na pozici {{position}} z {{total}}.",
+            "dropped": "Karta upuštěna na pozici {{position}} z {{total}}."
+         },
+         "hintLabel": "Nápověda k řazení",
+         "dragHandle": "Přetáhnout pro změnu pořadí",
+         "sortHint": "Řazení tažením je dostupné v tabulce bez řazení podle jiného sloupce.",
+         "sortHintWithCards": "Řazení tažením je dostupné v tabulce i v náhledu karet bez řazení podle jiného sloupce. Řazení zrušíte v tabulce."
+      },
+      "readOnly": {
+         "permission": "Nemáte oprávnění tento záznam upravovat.",
+         "published": "Tento záznam je publikovaný. Upravit ho může jen role s oprávněním publikovat."
+      },
+      "versionConflict": {
+         "title": "Záznam se mezitím změnil",
+         "description": "Vaše změny nebyly uloženy. Načtěte aktuální verzi. Rozpracované změny se tím zahodí.",
+         "reload": "Načíst aktuální verzi",
+         "close": "Zavřít",
+         "deleted": "Záznam mezitím někdo smazal, aktuální verzi nelze načíst.",
+         "reloadFailed": "Aktuální verzi se nepodařilo načíst, zkuste to znovu."
+      },
+      "editLock": {
+         "heldBy": "{{name}} upravuje tento záznam (od {{time}}). Pokud budete ukládat současně, jeden z vás dostane konflikt.",
+         "takenOver": "Úpravy převzal {{name}}. Pokud budete ukládat současně, jeden z vás dostane konflikt.",
+         "takeOver": "Převzít úpravy"
+      },
+      "newerVersion": {
+         "message": "Tento záznam se mezitím změnil mimo formulář, například ho upravila AURORA, jiný uživatel nebo jste změnili jeho stav. Při uložení dostanete konflikt.",
+         "reload": "Načíst aktuální verzi"
+      },
+      "httpError": {
+         "publishedContentLocked": "Publikovaný obsah může měnit jen role s oprávněním publikovat.",
+         "tooManyRequests": "Příliš mnoho požadavků, zkuste to za chvíli.",
+         "payloadTooLarge": "Soubor je příliš velký."
+      }
+   },
+   "auth": {
+      "login": "Přihlásit se",
+      "logout": "Odhlásit se",
+      "email": "E-mail",
+      "password": "Heslo",
+      "loginTitle": "Přihlášení",
+      "loginDescription": "Přihlaste se do administrace",
+      "invalidCredentials": "Nesprávný e-mail nebo heslo",
+      "profile": "Profil",
+      "forgotPassword": "Zapomenuté heslo?",
+      "forgotPasswordTitle": "Zapomenuté heslo",
+      "forgotPasswordDescription": "Zadejte email a my vám pošleme odkaz pro obnovu hesla",
+      "forgotPasswordSubmit": "Odeslat odkaz",
+      "forgotPasswordSuccess": "Pokud email existuje, pošleme odkaz pro obnovu hesla",
+      "resetPasswordTitle": "Nastavit nové heslo",
+      "resetPasswordDescription": "Zadejte nové heslo a pro kontrolu ho zopakujte",
+      "resetPasswordSubmit": "Nastavit heslo",
+      "resetPasswordSuccess": "Heslo bylo úspěšně změněno",
+      "resetPasswordInvalidLink": "Odkaz pro obnovu hesla vypršel nebo už byl použit.",
+      "resetPasswordRequestNewLink": "Požádat o nový odkaz",
+      "confirmPassword": "Potvrdit heslo",
+      "invitation": {
+         "title": "Dokončení registrace",
+         "description": "Vyplňte své údaje a nastavte si heslo",
+         "submit": "Vytvořit účet",
+         "success": "Účet byl úspěšně vytvořen",
+         "error": "Pozvánka je neplatná nebo vypršela",
+         "invalidTitle": "Neplatná pozvánka",
+         "invalidDescription": "Odkaz je neplatný nebo vypršel. Požádejte administrátora o novou pozvánku."
+      },
+      "rateLimited": "Příliš mnoho pokusů o přihlášení. Zkuste to znovu za {{time}}.",
+      "toast": {
+         "loginSuccess": "Přihlášení úspěšné",
+         "loginError": "Nesprávný e-mail nebo heslo",
+         "logoutSuccess": "Odhlášen"
+      }
+   },
+   "nav": {
+      "dashboard": "Přehled",
+      "projects": "Projekty",
+      "tags": "Štítky",
+      "users": "Uživatelé",
+      "roles": "Role",
+      "files": "Soubory",
+      "contact": "Kontakt",
+      "services": "Služby",
+      "language": "Jazyk",
+      "openMenu": "Otevřít menu",
+      "menu": "Menu",
+      "auditLog": "Audit log",
+      "runnerScores": "Hra",
+      "trash": "Koš"
+   },
+   "dashboard": {
+      "title": "Přehled",
+      "overview": "Přehled",
+      "stats": {
+         "projects": "Projekty",
+         "users": "Uživatelé",
+         "tags": "Štítky"
+      },
+      "recentProjects": {
+         "title": "Poslední projekty",
+         "table": {
+            "name": "Název",
+            "status": "Status",
+            "createdAt": "Vytvořeno"
+         }
+      },
+      "quickActions": {
+         "newProject": "Nový projekt",
+         "newTag": "Nový štítek"
+      },
+      "aurora": {
+         "title": "AURORA dnes",
+         "turns": "Dotazy",
+         "turnsHint": "Zprávy, které jste dnes AURORE poslali.",
+         "errors": "Chyby",
+         "errorsHint": "Odpovědi, které selhaly kvůli chybě AI služby.",
+         "error": "Statistiky nedostupné"
+      },
+      "game": {
+         "title": "Hra",
+         "topPlayers": "TOP hráči",
+         "rank": "Pořadí",
+         "player": "Hráč",
+         "time": "Čas",
+         "score": "Skóre",
+         "totalScores": "Skóre celkem",
+         "lastScore": "Poslední skóre",
+         "empty": "Zatím žádná skóre",
+         "error": "Statistiky hry nedostupné"
+      }
+   },
+   "projects": {
+      "title": "Projekty",
+      "create": "Nový projekt",
+      "edit": "Upravit projekt",
+      "table": {
+         "name": "Název",
+         "status": "Status",
+         "mainLink": "Hlavní odkaz",
+         "sortOrder": "Pořadí",
+         "createdAt": "Vytvořeno",
+         "updatedAt": "Upraveno",
+         "actions": "Akce"
+      },
+      "status": {
+         "draft": "Koncept",
+         "published": "Publikováno",
+         "all": "Všechny"
+      },
+      "form": {
+         "title": "Název",
+         "slug": "Slug",
+         "slugLocked": "zamčený",
+         "slugUnlocked": "odemčený",
+         "description": "Popis",
+         "content": "Obsah",
+         "metaTitle": "Meta titulek",
+         "metaDescription": "Meta popis",
+         "tags": "Štítky",
+         "addTag": "Přidat štítek",
+         "searchTags": "Hledat štítky...",
+         "media": "Média",
+         "save": "Uložit",
+         "saveDraft": "Uložit jako koncept",
+         "publish": "Publikovat",
+         "unpublish": "Vrátit do konceptu",
+         "thumbnail": "Náhledový obrázek",
+         "thumbnailChange": "Změnit",
+         "thumbnailRemove": "Odebrat",
+         "mediaLanguageAll": "Všechny jazyky",
+         "mediaRemove": "Odebrat",
+         "showOnHomepage": "Zobrazit na homepage",
+         "addManually": "Ručně",
+         "generateAI": "Vygenerovat AI",
+         "generateAIHint": "Nejdříve vyplňte českou verzi",
+         "regenerateAI": "Přegenerovat AI",
+         "preview": "Zobrazit preview",
+         "role": "Role",
+         "company": "Firma",
+         "startYear": "Rok začátku",
+         "endYear": "Rok konce",
+         "ongoing": "Probíhá do současnosti",
+         "links": "Odkazy",
+         "linksLimitReached": "Dosažen limit {{max}} odkazů. Další přidáte, až některý odeberete.",
+         "linkRemoved": "Odkaz {{position}} odebrán. Zbývající odkazy: {{count}}.",
+         "moveLink": "Přesunout odkaz",
+         "moveLinkInstructions": "Mezerníkem odkaz zvednete, šipkami ho posunete, mezerníkem položíte a klávesou Escape přesun zrušíte.",
+         "linkPickedUp": "Odkaz na pozici {{position}} zvednut.",
+         "linkMovedOver": "Odkaz posunut na pozici {{position}} z {{total}}.",
+         "linkDropped": "Odkaz položen na pozici {{position}}.",
+         "linkDragCancelled": "Přesun odkazu zrušen.",
+         "linkUrl": "URL odkazu",
+         "addLink": "Přidat odkaz",
+         "removeLink": "Odebrat odkaz",
+         "sections": {
+            "content": "Obsah stránky",
+            "seo": "SEO",
+            "detail": "Detail",
+            "details": "Podrobnosti"
+         },
+         "mediaHint": "Přidejte soubor přetažením, výběrem z počítače nebo z galerie.",
+         "mediaMove": "Přesunout",
+         "mediaDownload": "Stáhnout",
+         "mediaEdit": "Upravit",
+         "removeTag": "Odebrat štítek",
+         "moveTag": "Přesunout štítek"
+      },
+      "toast": {
+         "created": "Projekt vytvořen",
+         "saved": "Projekt uložen",
+         "published": "Projekt publikován",
+         "unpublished": "Projekt vrácen do konceptu",
+         "deleted": "Projekt přesunut do koše",
+         "translationGenerated": "Překlad byl vygenerován",
+         "error": "Nepodařilo se uložit projekt",
+         "saveInvalid": "Projekt se nepodařilo uložit: server odmítl některé údaje.",
+         "saveForbidden": "Projekt se nepodařilo uložit: k této akci nemáte oprávnění.",
+         "saveMissing": "Projekt se nepodařilo uložit: projekt, náhledový obrázek, soubor nebo štítek už neexistuje.",
+         "saveConflict": "Projekt se nepodařilo uložit: stejná data právě měnil někdo jiný. Nic se neuložilo, zkuste uložit znovu.",
+         "translationFailed": "Překlad se nepodařilo vygenerovat",
+         "statusFailed": "Stav projektu se nepodařilo změnit",
+         "deleteFailed": "Projekt se nepodařilo přesunout do koše",
+         "reorderFailed": "Nepodařilo se uložit pořadí projektů"
+      },
+      "delete": {
+         "title": "Přesunout projekt do koše",
+         "description": "Projekt zmizí z webu i ze seznamů. Dokud se automaticky nesmaže trvale, můžete ho z koše vrátit (jako koncept).",
+         "confirm": "Přesunout do koše",
+         "cancel": "Zrušit"
+      },
+      "validation": {
+         "slugRequired": "Slug je povinný",
+         "slugInvalid": "Slug smí obsahovat jen malá písmena bez diakritiky, číslice a jednotlivé pomlčky mezi nimi",
+         "slugTaken": "Projekt s tímto slugem už existuje"
+      }
+   },
+   "services": {
+      "title": "Služby",
+      "create": "Nová služba",
+      "edit": "Upravit službu",
+      "table": {
+         "name": "Název",
+         "slug": "Slug",
+         "status": "Status",
+         "sortOrder": "Pořadí",
+         "updatedAt": "Upraveno",
+         "actions": "Akce"
+      },
+      "status": {
+         "all": "Všechny",
+         "draft": "Koncept",
+         "published": "Publikováno"
+      },
+      "form": {
+         "title": "Název",
+         "slug": "Slug",
+         "slugLocked": "zamčený",
+         "slugUnlocked": "odemčený",
+         "description": "Popis",
+         "content": "Obsah",
+         "metaTitle": "SEO titulek",
+         "metaDescription": "SEO popis",
+         "save": "Uložit",
+         "saveDraft": "Uložit jako koncept",
+         "publish": "Publikovat",
+         "unpublish": "Vrátit do konceptu",
+         "projects": "Projekty",
+         "addProject": "Přidat projekt",
+         "searchProjects": "Hledat projekt...",
+         "showOnHomepage": "Zobrazit na homepage",
+         "addManually": "Ručně",
+         "generateAI": "Vygenerovat AI",
+         "generateAIHint": "Nejdříve vyplňte českou verzi",
+         "regenerateAI": "Přegenerovat AI",
+         "sections": {
+            "content": "Obsah stránky",
+            "seo": "SEO",
+            "properties": "Vlastnosti"
+         },
+         "removeProject": "Odebrat projekt"
+      },
+      "toast": {
+         "created": "Služba vytvořena",
+         "updated": "Služba uložena",
+         "published": "Služba publikována",
+         "unpublished": "Služba vrácena do konceptu",
+         "deleted": "Služba přesunuta do koše",
+         "translationGenerated": "Překlad byl vygenerován",
+         "error": "Nepodařilo se uložit službu",
+         "saveInvalid": "Službu se nepodařilo uložit: server odmítl některé údaje.",
+         "saveForbidden": "Službu se nepodařilo uložit: k této akci nemáte oprávnění.",
+         "saveMissing": "Službu se nepodařilo uložit: služba nebo některý z jejích projektů už neexistuje.",
+         "saveConflict": "Službu se nepodařilo uložit: stejná data právě měnil někdo jiný. Nic se neuložilo, zkuste uložit znovu.",
+         "translationFailed": "Překlad se nepodařilo vygenerovat",
+         "statusFailed": "Stav služby se nepodařilo změnit",
+         "deleteFailed": "Službu se nepodařilo přesunout do koše",
+         "reorderFailed": "Nepodařilo se uložit pořadí služeb"
+      },
+      "delete": {
+         "title": "Přesunout službu do koše",
+         "description": "Služba zmizí z webu i ze seznamů. Dokud se automaticky nesmaže trvale, můžete ji z koše vrátit (jako koncept).",
+         "confirm": "Přesunout do koše",
+         "cancel": "Zrušit"
+      },
+      "validation": {
+         "slugRequired": "Slug je povinný",
+         "slugInvalid": "Slug smí obsahovat jen malá písmena bez diakritiky, číslice a jednotlivé pomlčky mezi nimi",
+         "slugTaken": "Služba s tímto slugem už existuje"
+      }
+   },
+   "tags": {
+      "title": "Štítky",
+      "create": "Nový štítek",
+      "edit": "Upravit štítek",
+      "table": {
+         "name": "Název",
+         "slug": "Slug",
+         "color": "Barva",
+         "sortOrder": "Pořadí",
+         "createdAt": "Vytvořeno",
+         "updatedAt": "Upraveno",
+         "actions": "Akce"
+      },
+      "form": {
+         "nameInLanguage": "Název ({{language}})",
+         "nameHint": {
+            "all": "Název se použije ve všech jazycích, dokud nepřidáte anglický.",
+            "cs": "Český název se použije v české verzi webu.",
+            "en": "Anglický název se použije v anglické verzi webu."
+         },
+         "slug": "Slug",
+         "slugLocked": "zamčený",
+         "slugUnlocked": "odemčený",
+         "color": "Barva",
+         "colorPlaceholder": "#0130fe",
+         "save": "Uložit"
+      },
+      "delete": {
+         "title": "Přesunout štítek do koše",
+         "description": "Štítek zmizí ze seznamů, projektů i z webu, ale zůstane navázaný na své projekty. Dokud se automaticky nesmaže trvale, můžete ho z koše vrátit.",
+         "confirm": "Přesunout do koše",
+         "cancel": "Zrušit"
+      },
+      "toast": {
+         "created": "Štítek vytvořen",
+         "saved": "Štítek uložen",
+         "deleted": "Štítek přesunut do koše",
+         "error": "Nepodařilo se uložit štítek",
+         "reorderFailed": "Nepodařilo se uložit pořadí štítků",
+         "notFound": "Štítek neexistuje nebo byl smazán",
+         "loadFailed": "Nepodařilo se načíst štítek"
+      }
+   },
+   "users": {
+      "title": "Uživatelé",
+      "createBtn": "Vytvořit uživatele",
+      "createTitle": "Vytvořit nového uživatele",
+      "editTitle": "Upravit uživatele",
+      "invite": "Pozvat uživatele",
+      "inviteTitle": "Pozvat nového uživatele",
+      "table": {
+         "name": "Jméno",
+         "email": "E-mail",
+         "role": "Role",
+         "status": "Stav",
+         "createdAt": "Vytvořeno",
+         "updatedAt": "Upraveno",
+         "actions": "Akce"
+      },
+      "status": {
+         "active": "Aktivní",
+         "pending": "Čeká na přijetí",
+         "deleted": "Smazán",
+         "deactivated": "Deaktivován"
+      },
+      "delete": {
+         "title": "Smazat uživatele",
+         "description": "Opravdu chcete smazat tohoto uživatele? Tato akce je nevratná. Uživatele s obsahem nebo historií nelze smazat, ty deaktivujte.",
+         "confirm": "Smazat",
+         "cancel": "Zrušit"
+      },
+      "profile": {
+         "title": "Profil",
+         "firstName": "Jméno",
+         "lastName": "Příjmení",
+         "changePassword": "Změna hesla",
+         "currentPassword": "Současné heslo",
+         "newPassword": "Nové heslo (min. 8 znaků)",
+         "changePasswordBtn": "Změnit heslo",
+         "avatar": {
+            "upload": "Nahrát fotku",
+            "hint": "Max. 5 MB · JPEG, PNG, WebP, GIF",
+            "uploadTitle": "Nahrát fotku",
+            "dropzoneText": "Klikněte nebo přetáhněte sem fotku",
+            "delete": "Smazat fotku",
+            "deleteTitle": "Smazat profilovou fotku",
+            "deleteDescription": "Opravdu chcete smazat profilovou fotku? Tuto akci nelze vrátit zpět.",
+            "clearImage": "Vybrat jinou",
+            "cropConfirm": "Použít",
+            "zoom": "Přiblížení",
+            "toast": {
+               "uploaded": "Profilová fotka aktualizována",
+               "deleted": "Profilová fotka smazána",
+               "error": "Nepodařilo se nahrát fotku",
+               "invalidType": "Tento typ souboru nelze použít. Vyberte JPEG, PNG, WebP nebo GIF.",
+               "processError": "Fotku se nepodařilo zpracovat. Vyberte jinou."
+            }
+         },
+         "sections": {
+            "personal": "Osobní údaje"
+         }
+      },
+      "form": {
+         "role": "Role",
+         "selectRole": "Vyberte roli",
+         "password": "Heslo (min. 8 znaků)"
+      },
+      "actions": {
+         "resendInvitation": "Znovu odeslat pozvánku",
+         "changeRole": "Změnit roli",
+         "deactivate": "Deaktivovat",
+         "reactivate": "Znovu aktivovat"
+      },
+      "toast": {
+         "created": "Uživatel vytvořen",
+         "createError": "Nepodařilo se vytvořit uživatele",
+         "updated": "Uživatel upraven",
+         "updateError": "Nepodařilo se upravit uživatele",
+         "deleted": "Uživatel smazán",
+         "invited": "Pozvánka odeslána",
+         "inviteError": "Nepodařilo se odeslat pozvánku",
+         "profileSaved": "Profil uložen",
+         "passwordChanged": "Heslo bylo změněno, přihlaste se znovu",
+         "passwordError": "Nepodařilo se změnit heslo",
+         "invitationResent": "Pozvánka odeslána",
+         "roleChanged": "Role změněna",
+         "deactivated": "Uživatel deaktivován",
+         "reactivated": "Uživatel znovu aktivován"
+      },
+      "filter": {
+         "all": "Všechny účty",
+         "active": "Aktivní",
+         "deactivated": "Deaktivované"
+      },
+      "deactivate": {
+         "title": "Deaktivovat uživatele",
+         "description": "Uživatel {{email}} se nebude moci přihlásit a všechna jeho přihlášení skončí okamžitě. Účet, jeho historie a autorství zůstanou zachovány, deaktivaci lze kdykoli zrušit.",
+         "confirm": "Deaktivovat"
+      },
+      "reactivate": {
+         "title": "Znovu aktivovat uživatele",
+         "description": "Uživatel {{email}} se bude moci znovu přihlásit se svým stávajícím heslem. Dřívější přihlášení se neobnoví, uživatel se přihlásí znovu.",
+         "confirm": "Znovu aktivovat"
+      },
+      "deactivatedNotice": "Účet je deaktivován a nemůže se přihlásit."
+   },
+   "roles": {
+      "title": "Role",
+      "create": "Nová role",
+      "edit": "Upravit roli",
+      "admin": "Admin",
+      "system": "Systémová",
+      "fullAccess": "Plný přístup",
+      "adminFullAccess": "Admin role má plný přístup ke všem zdrojům.",
+      "resourceHeader": "Zdroj",
+      "resource": {
+         "projects": "Projekty",
+         "services": "Služby",
+         "tags": "Štítky",
+         "files": "Soubory",
+         "users": "Uživatelé",
+         "contact": "Kontakt",
+         "runner_scores": "Skóre ze hry",
+         "roles": "Role",
+         "audit_logs": "Audit log"
+      },
+      "action": {
+         "read": "Číst",
+         "create": "Vytvořit",
+         "update": "Upravit",
+         "delete": "Smazat",
+         "publish": "Publikovat"
+      },
+      "permissionsCount": "{{count}} oprávnění",
+      "permissionLabel": "{{resource}}: {{action}}",
+      "permissionNotHeld": "Toto oprávnění vaše role nemá, nemůžete ho proto udělit.",
+      "table": {
+         "name": "Název",
+         "type": "Typ",
+         "permissions": "Oprávnění",
+         "updatedAt": "Upraveno",
+         "actions": "Akce"
+      },
+      "form": {
+         "name": "Název",
+         "permissions": "Oprávnění",
+         "sections": {
+            "details": "Údaje role"
+         }
+      },
+      "toast": {
+         "saved": "Role uložena",
+         "deleted": "Role smazána",
+         "permissionsNotSaved": "Role byla vytvořena, ale oprávnění se nepodařilo uložit. Nastavte je znovu a uložte."
+      },
+      "delete": {
+         "title": "Smazat roli",
+         "description": "Tato akce je nevratná. Role bude trvale odstraněna.",
+         "cancel": "Zrušit",
+         "confirm": "Smazat"
+      },
+      "readOnly": {
+         "notManageable": "Tuto roli upravit nemůžete: je to vaše vlastní role, nebo má oprávnění, která vaše role nemá."
+      }
+   },
+   "contact": {
+      "title": "Kontaktní údaje",
+      "companyName": "Název firmy",
+      "phone": "Telefon",
+      "email": "E-mail",
+      "street": "Ulice",
+      "zip": "PSČ",
+      "city": "Město",
+      "ico": "IČO",
+      "vatPayer": "Plátce DPH",
+      "linkedinUrl": "LinkedIn URL",
+      "githubUrl": "GitHub URL",
+      "description": "Popis",
+      "aboutTitle": "Nadpis sekce O mně",
+      "aboutTitleHint": "Prázdné pole použije výchozí nadpis webu.",
+      "placeholder": {
+         "companyName": "Firma s.r.o.",
+         "phone": "+420 123 456 789",
+         "email": "info@firma.cz",
+         "street": "Ulice 123/4",
+         "zip": "110 00",
+         "city": "Praha",
+         "ico": "12345678",
+         "linkedinUrl": "https://linkedin.com/in/...",
+         "githubUrl": "https://github.com/...",
+         "description": "Krátký text o mně, který se zobrazí na webu."
+      },
+      "toast": {
+         "saved": "Kontaktní údaje uloženy"
+      },
+      "sections": {
+         "intro": "O mně",
+         "contact": "Kontakt",
+         "company": "Fakturační údaje",
+         "social": "Sociální sítě"
+      }
+   },
+   "files": {
+      "title": "Soubory",
+      "upload": "Nahrát soubor",
+      "table": {
+         "preview": "Náhled",
+         "name": "Název",
+         "size": "Velikost",
+         "dimensions": "Rozměry",
+         "createdAt": "Nahráno",
+         "actions": "Akce",
+         "url": "URL",
+         "author": "Nahrál",
+         "language": "Jazyk",
+         "copyUrl": "Zkopírovat URL"
+      },
+      "uploadDialog": {
+         "title": "Nahrát soubor",
+         "description": "Přetáhněte soubor sem nebo klikněte pro výběr",
+         "dropHere": "Pusťte soubor sem",
+         "uploading": "Nahrávám…",
+         "name": "Název souboru",
+         "cancel": "Zrušit",
+         "language": "Jazyk",
+         "failed": "Nahrání se nezdařilo",
+         "retry": "Zkusit znovu",
+         "uploadingTitle": "Nahrávání souboru",
+         "failedDetail": "Zkuste to znovu."
+      },
+      "preview": {
+         "title": "Náhled souboru",
+         "download": "Stáhnout",
+         "copyUrl": "Zkopírovat URL",
+         "edit": "Upravit",
+         "openOriginal": "Otevřít originál"
+      },
+      "delete": {
+         "title": "Přesunout soubor do koše",
+         "description": "Soubor \"{{name}}\" zmizí z knihovny i z webu. Projekty, které ho používají, si referenci ponechají. Dokud se automaticky nesmaže trvale, můžete ho z koše vrátit. Do té doby zůstane uložený soubor i s variantami dostupný na své veřejné adrese úložiště; chcete-li ho odstranit hned, použijte v koši „Smazat trvale“.",
+         "confirm": "Přesunout do koše",
+         "cancel": "Zrušit"
+      },
+      "toast": {
+         "uploaded": "Soubor byl přidán.",
+         "deleted": "Soubor přesunut do koše",
+         "error": "Nastala chyba",
+         "updated": "Soubor aktualizován",
+         "copied": "URL zkopírována"
+      },
+      "editDialog": {
+         "title": "Upravit soubor",
+         "name": "Název souboru",
+         "altText": "Popis obrázku (alt)",
+         "altTextHint": "Popisuje obrázek vyhledávačům a čtečkám obrazovky. Pište v jazyce souboru, stručně a věcně. Zobrazuje se jen u obrázků, nejvýše 300 znaků.",
+         "altTextHintLabel": "Nápověda k popisu obrázku",
+         "language": "Jazyk",
+         "languagePlaceholder": "Vyberte jazyk",
+         "noLanguage": "Bez jazyka",
+         "save": "Uložit",
+         "currentImage": "Aktuální obrázek",
+         "currentFile": "Aktuální soubor"
+      },
+      "processing": {
+         "pending": "Čeká na zpracování",
+         "processing": "Zpracovává se…",
+         "failed": "Zpracování selhalo"
+      },
+      "field": {
+         "drop": {
+            "file": "Přetáhněte soubor pro nahrání, nebo vyberte existující",
+            "image": "Přetáhněte obrázek pro nahrání, nebo vyberte existující"
+         },
+         "touch": {
+            "file": "Tažení souboru není dostupné. Vyberte soubor pomocí tlačítka „Vybrat soubor“ nebo z galerie.",
+            "image": "Tažení souboru není dostupné. Vyberte obrázek pomocí tlačítka „Vybrat obrázek“ nebo z galerie."
+         },
+         "choose": {
+            "file": "Vybrat soubor",
+            "image": "Vybrat obrázek"
+         },
+         "chooseGallery": "Vybrat z galerie",
+         "maxSize": "Maximální velikost: {{size}} MB.",
+         "types": {
+            "file": "Podporované typy: obrázky (JPG, PNG, WebP, GIF, SVG), PDF, DOC, DOCX, XLSX, PPTX, TXT, ZIP, RAR, 7Z, MP4, WebM.",
+            "image": "Podporované typy: JPG, PNG, WebP, GIF, SVG."
+         },
+         "error": {
+            "tooLarge": {
+               "title": "Soubor je příliš velký",
+               "detail": "Maximální velikost je {{size}} MB."
+            },
+            "invalidType": {
+               "title": "Tento typ souboru není podporován"
+            },
+            "notImage": {
+               "title": "Nahrát lze jen obrázek"
+            }
+         },
+         "dropHint": {
+            "file": "Např. obrázek nebo PDF.",
+            "image": "Např. JPG nebo PNG."
+         },
+         "added": "Soubor byl úspěšně přidán.",
+         "helpLabel": "Podporované typy a velikost souboru"
+      }
+   },
+   "filePicker": {
+      "title": "Vybrat z galerie",
+      "upload": "Nahrát z počítače",
+      "noFiles": "Žádné soubory. Nahrajte první soubor.",
+      "uploading": "Nahrávám…"
+   },
+   "textEditor": {
+      "bold": "Tučné",
+      "italic": "Kurzíva",
+      "strike": "Přeškrtnuté",
+      "heading2": "Nadpis 2",
+      "heading3": "Nadpis 3",
+      "bulletList": "Odrážkový seznam",
+      "orderedList": "Číslovaný seznam",
+      "link": "Odkaz",
+      "image": "Obrázek",
+      "table": "Tabulka",
+      "addRow": "Přidat řádek",
+      "addColumn": "Přidat sloupec",
+      "deleteRow": "Smazat řádek",
+      "deleteColumn": "Smazat sloupec",
+      "deleteTable": "Smazat tabulku",
+      "htmlSource": "HTML kód",
+      "copyHtml": "Kopírovat",
+      "copied": "Zkopírováno",
+      "copyFailed": "Kopírování se nezdařilo",
+      "undo": "Zpět",
+      "redo": "Znovu"
+   },
+   "linkDialog": {
+      "title": "Odkaz",
+      "url": "URL",
+      "urlPlaceholder": "https://… nebo /cesta-na-webu",
+      "newTab": "Otevřít v novém okně",
+      "remove": "Odebrat odkaz",
+      "invalid": "Tato URL není povolená."
+   },
+   "auditLog": {
+      "title": "Audit log",
+      "table": {
+         "date": "Datum",
+         "actor": "Uživatel",
+         "action": "Akce",
+         "resource": "Zdroj",
+         "metadata": "Metadata"
+      },
+      "actorType": {
+         "user": "Uživatel",
+         "admin": "Admin",
+         "ai": "AI",
+         "system": "Systém"
+      },
+      "filters": {
+         "all": "Vše",
+         "action": "Filtr akcí (např. project.create)",
+         "resourceType": "Typ zdroje",
+         "actorType": "Typ uživatele",
+         "from": "Datum od",
+         "to": "Datum do"
+      }
+   },
+   "runnerScores": {
+      "title": "Skóre ze hry",
+      "visible": "Viditelné",
+      "hidden": "Skryté",
+      "hide": "Skrýt",
+      "show": "Zobrazit",
+      "table": {
+         "nick": "Jméno",
+         "score": "Skóre",
+         "duration": "Délka hry",
+         "visibility": "Viditelnost",
+         "createdAt": "Uloženo",
+         "actions": "Akce"
+      },
+      "delete": {
+         "title": "Smazat skóre",
+         "description": "Opravdu chcete smazat toto skóre? Tato akce je nevratná.",
+         "confirm": "Smazat",
+         "cancel": "Zrušit"
+      },
+      "toast": {
+         "hidden": "Skóre skryto",
+         "shown": "Skóre zobrazeno",
+         "deleted": "Skóre smazáno"
+      }
+   },
+   "trash": {
+      "title": "Koš",
+      "description": "Smazané položky tu zůstanou a dají se vrátit, dokud se automaticky nesmažou trvale (viz Zbývá).",
+      "tabs": {
+         "projects": "Projekty",
+         "services": "Služby",
+         "tags": "Štítky",
+         "files": "Soubory"
+      },
+      "table": {
+         "name": "Název",
+         "deletedAt": "Smazáno",
+         "deletedBy": "Smazal(a)",
+         "daysLeft": "Zbývá",
+         "actions": "Akce"
+      },
+      "daysLeft_one": "{{count}} den",
+      "daysLeft_few": "{{count}} dny",
+      "daysLeft_many": "{{count}} dne",
+      "daysLeft_other": "{{count}} dní",
+      "dueSoon": "Dnes",
+      "unknownUser": "Neznámý",
+      "empty": "Koš je prázdný",
+      "emptyDescription": "Smazané položky tohoto druhu se zobrazí tady.",
+      "restore": "Obnovit",
+      "restoreTitle": "Obnovit „{{name}}“",
+      "restoreDescription": "Vrátí se jako koncept, na konec pořadí.",
+      "restoreDescriptionTag": "Vrátí se jako koncept a zpět na své projekty.",
+      "restoreDescriptionFile": "Projekty, které ho používají, ho zase zobrazí.",
+      "restoreConfirm": "Obnovit",
+      "deletePermanently": "Smazat trvale",
+      "deleteTitle": "Smazat „{{name}}“ trvale",
+      "deleteDescription": "Tuto akci nelze vrátit. Smaže se i vše, co k položce patří.",
+      "deleteConfirm": "Smazat trvale",
+      "cancel": "Zrušit",
+      "toast": {
+         "restored": "Obnoveno z koše",
+         "restoreFailed": "Obnovení se nepodařilo",
+         "restoreConflict": "Obnovení se nepodařilo: adresu (slug) nebo název teď používá jiná položka. Nejdřív ji přejmenujte nebo smažte.",
+         "deleted": "Smazáno trvale",
+         "deleteFailed": "Smazání se nepodařilo",
+         "deleteInUse": "Smazat nelze: soubor stále používá nějaký projekt. Odeberte ho z projektu, nebo ho obnovte."
+      },
+      "fileInTrash": "Tento soubor je v koši. Web ho nezobrazuje.",
+      "fileInTrashShort": "V koši"
+   }
+}
